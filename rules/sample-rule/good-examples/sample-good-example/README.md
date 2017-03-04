@@ -1,0 +1,23 @@
+##### Underscore delimited
+
+URI template fragmets are all underscore delimited
+
+```
+swagger: "2.0"
+host: "api.tld"
+schemes:
+  - "https"
+info:
+  version: "1.0"
+  title: "Hello World API"
+paths:
+  /hello_world:
+    get:
+      description: Returns hello world
+      responses:
+        200:
+          description: Returns hello world
+          schema:
+            type: string
+            example: Hello world
+```
