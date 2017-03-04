@@ -1,6 +1,6 @@
 # Contracts for API Design Style Guides and Rules
 
-Directory of reusable API Design Style Guide Rules specified by executable examples for API Descirption Language linters test-driven development, CI, portability and up-to-date documentation.
+Directory of reusable API Design Style Guide Rules specified by executable examples for API Descirption Language linters test-driven development, CI, portability, up-to-date documentation and preventing regressions and unwanted changes in behavior of underying Style Guide engines.
 
 ## How to write an executable, long-lasting API Design Style Guide
 
@@ -12,12 +12,20 @@ Directory of reusable API Design Style Guide Rules specified by executable examp
 - Add good and bad examples for every single rule using API Description language (OAS/Swagger, API Blueprint, RAML, ...)
 
 ### 3. TDD the linter rules, Add your Style Guide to CI
-- Hook-up an API Description language Style Guide engine (linter)
+- Hook-up an API Description language Style Guide engine in and execute examples against Rules assertion code as fixtures in your tests (see: `/styleguide/sample-styleguide/linter/linter`
+
 - Make the linter **pass** on all **good examples**
 - Make the linter **fail** on all **bad examples**
-- Execute examples against Rules assertion code as fixtures in your tests
-- To prevent regressions and unwanted changes in behavior of underying Style Guide engines
-- Hook-up the styleguide and liter in the particular API Descrition lifecycle - test-suite and CI
+
+```
+$ /scripts/test
+Testing styleguide 'sample-styleguide'
+  Testing rule 'sample-rule'
+    Expecting good example 'sample-good-example' to pass
+      PASS
+    Expecting bad example 'sample-bad-example' to fail
+      PASS
+```
 
 ### 4. Generate the documentation
 
@@ -34,10 +42,11 @@ $ ./scripts/compile
 
 
 
-### 5. Collaborate, re-use, share
+### 5. Collaborate, re-use, share, iterate
+
 - Generate the documentation
 - Not all rules can be expressed in current API Description languages, contrinute to their design
-- Fork this repo,
+- Fork this repo, add your Rules, Good and Bad Eaxmples, and Styleguides
 
 ## How it works
 
