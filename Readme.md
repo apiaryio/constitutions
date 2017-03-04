@@ -4,26 +4,38 @@ Direcotry of reusable API Design Style Guide Rules specified by examples for API
 
 ## How to write an executable, long-lasting API Design Style Guide
 
-### 1. Prepare the Style Guide conceptiualy
+### 1. Prepare the Style Guide concepiually
 - Catch the idea
 - Create a formal, textual specification
 
-### 2. Breakdown the design into single rules
+### 2. Breakdown the specification into single rules
 - Add good and bad examples for every single rule using API Description language (OAS/Swagger, API Blueprint, RAML, ...)
 
-### 3. TDD the linter rules
-- Hook up an API Description language Style Guide engine (linter)
+### 3. TDD the linter rules, Add your Style Guide to CI
+- Hook-up an API Description language Style Guide engine (linter)
 - Make the linter **pass** on all **good examples**
 - Make the linter **fail** on all **bad examples**
 - Execute examples against Rules assertion code as fixtures in your tests
-- Compile the Style Guide Documentation to a Markdown document
-
-### 4. Add your styleguide to CI
-
 - To prevent regressions and unwanted changes in behavior of underying Style Guide engines
 
-### 5. Collaborate, re-use, share
 
+### 4. Generate the documentation
+
+- Compile the Style Guide Documentation to a Markdown document
+
+```
+$ ./bin/compile
+```
+
+- [Sample Style Guide Readme](./styleguides/sample-styleguide/README.md)
+- [Sample Rule Readme](./rules/sample-rule/README.md)
+- [Sample Good Example Readme](./rules/sample-rule/good-examples/sample-good-example/README.md)
+- [Sample Bad Example Readme](./rules/sample-rule/bad-examples/sample-bad-example/README.md)
+
+
+
+### 5. Collaborate, re-use, share
+- Generate the documentation
 - Not all rules can be expressed in current API Description languages, contrinute to their design
 - Fork this repo,
 
@@ -60,20 +72,5 @@ enging
     ├ enabled_rules                       - Rule directory names to be included in the styleguide
     └ title                               - Style Guide human understandable title
 ```
-
-
-### Generate the documentation
-
-```
-$ ./bin/compile
-```
-
-- [Sample Style Guide Readme](./styleguides/sample-styleguide/README.md)
-- [Sample Rule Readme](./rules/sample-rule/README.md)
-- [Sample Good Example Readme](./rules/sample-rule/good-examples/sample-good-example/README.md)
-- [Sample Bad Example Readme](./rules/sample-rule/bad-examples/sample-bad-example/README.md)
-
-
-
 
 
