@@ -107,6 +107,9 @@ for styleguide in \
       # Explode if the rule in enabled rules isn't a rule in the ruledir
       echo "Error: The rule dir '$enabled_rule' in '$styleguide_dir/enabled_rules'" \
            "not found in the rules directory '$RULES_DIR' "
+      # Cleanup generated and template Markdowns
+      find . | grep "generated.md" | xargs rm
+
       exit 1
     fi
 
