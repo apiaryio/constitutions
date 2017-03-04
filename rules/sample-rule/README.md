@@ -8,7 +8,7 @@ Textual description of a rule
 #### Good Examples
 ##### Underscore delimited
 
-Possible verbal description
+URI template fragmets are all underscore delimited
 
 ```
 swagger: "2.0"
