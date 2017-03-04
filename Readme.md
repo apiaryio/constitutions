@@ -79,7 +79,9 @@ enging
     ├ README.md                           - Generated Styleguide Readme inculding the enabled rules
     ├ description                         - Human understandable styleguide description and introduction
     ├ enabled_rules                       - Rule directory names to be included in the styleguide
-    └ title                               - Style Guide human understandable title
+    ├ title                               - Style Guide human understandable title
+    └ linter                              - Directory where the linter livers
+      └ linters                           - API Description Linter executable command wrapper
 ```
 
 
