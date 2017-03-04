@@ -5,15 +5,15 @@
 
 ## Rules
 
-#Human Uderstandable Rule Name
+###Human Uderstandable Rule Name
 Applies to API Elements`root`
 
 Textual description of a rule
 
 
 
-## Good Examples
-# Possible Good Example Human Understandable Title
+#### Good Examples
+##### Possible Good Example Human Understandable Title
 
 Possible verbal description
 
@@ -21,8 +21,8 @@ Possible verbal description
 # Any document
 ```
 
-## Bad Examples
-# Possible Good Example Human Understandable Title
+#### Bad Examples
+##### Possible Good Example Human Understandable Title
 
 Possible verbal description
 
