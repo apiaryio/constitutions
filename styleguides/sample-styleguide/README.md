@@ -1,6 +1,6 @@
 # Example API Elements Style Guide Boilerplate
 
-# Introduction
+Textual description of the styleguide, some introduction and some **Markdown**
 
 
 ## Rules
