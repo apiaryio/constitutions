@@ -1,5 +1,7 @@
 # Contracts for API Design Style Guides and Rules
 
+[![CircleCI](https://circleci.com/gh/apiaryio/constitutions.svg?style=svg&circle-token=32b6b19a59e02fdb795d2f47c80e37e2a2a9a033)](https://circleci.com/gh/apiaryio/constitutions)
+
 Directory of reusable API Design Style Guide Rules specified by executable examples for API Descirption Language linters test-driven development, CI, portability, up-to-date documentation and preventing regressions and unwanted changes in behavior of underying Style Guide engines.
 
 ## How to write an executable, long-lasting API Design Style Guide
