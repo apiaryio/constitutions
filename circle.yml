@@ -1,0 +1,8 @@
+machine:
+  node:
+    version: "6"
+  pre:
+    - npm install -g apilint --no-optional
+  override:
+    - ./scripts/test
+
