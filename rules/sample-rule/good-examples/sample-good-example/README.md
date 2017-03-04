@@ -1,7 +1,23 @@
-##### Possible Good Example Human Understandable Title
+##### Underscore delimited
 
 Possible verbal description
 
 ```
-# Any document
+swagger: "2.0"
+host: "api.tld"
+schemes:
+  - "https"
+info:
+  version: "1.0"
+  title: "Hello World API"
+paths:
+  /hello_world:
+    get:
+      description: Returns hello world
+      responses:
+        200:
+          description: Returns hello world
+          schema:
+            type: string
+            example: Hello world
 ```

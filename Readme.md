@@ -1,10 +1,10 @@
 # Contracts for API Design Style Guides and Rules
 
-Direcotry of reusable API Design Style Guide Rules specified by examples for API Descirption Language linter test-driven development, CI and portability and documentation.
+Directory of reusable API Design Style Guide Rules specified by executable examples for API Descirption Language linters test-driven development, CI, portability and up-to-date documentation.
 
 ## How to write an executable, long-lasting API Design Style Guide
 
-### 1. Prepare the Style Guide concepiually
+### 1. Prepare the Style Guide concepually
 - Catch the idea
 - Create a formal, textual specification
 
@@ -17,14 +17,14 @@ Direcotry of reusable API Design Style Guide Rules specified by examples for API
 - Make the linter **fail** on all **bad examples**
 - Execute examples against Rules assertion code as fixtures in your tests
 - To prevent regressions and unwanted changes in behavior of underying Style Guide engines
-
+- Hook-up the styleguide and liter in the particular API Descrition lifecycle - test-suite and CI
 
 ### 4. Generate the documentation
 
 - Compile the Style Guide Documentation to a Markdown document
 
 ```
-$ ./bin/compile
+$ ./scripts/compile
 ```
 
 - [Sample Style Guide Readme](./styleguides/sample-styleguide/README.md)

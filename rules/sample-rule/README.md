@@ -1,4 +1,4 @@
-###Human Uderstandable Rule Name
+###URIs are in uderscore delimited format
 Applies to API Elements`root`
 
 Textual description of a rule
@@ -6,24 +6,55 @@ Textual description of a rule
 
 
 #### Good Examples
-##### Possible Good Example Human Understandable Title
+##### Underscore delimited
 
 Possible verbal description
 
 ```
-# Any document
+swagger: "2.0"
+host: "api.tld"
+schemes:
+  - "https"
+info:
+  version: "1.0"
+  title: "Hello World API"
+paths:
+  /hello_world:
+    get:
+      description: Returns hello world
+      responses:
+        200:
+          description: Returns hello world
+          schema:
+            type: string
+            example: Hello world
 ```
 
 #### Bad Examples
-##### Possible Good Example Human Understandable Title
+##### Camel case
 
-Possible verbal description
+URI template has camel case formatted fragment
 
 ```
-swagger: 2.0
-host: http://my.host.tld
+swagger: "2.0"
+host: "api.tld"
+schemes:
+  - "https"
+info:
+  version: "1.0"
+  title: "Hello World API"
+paths:
+  /helloWorld:
+    get:
+      description: Returns hello world
+      responses:
+        200:
+          description: Returns hello world
+          schema:
+            type: string
+            example: Hello world
 ```
 
-> Error: Expected error text or regex
+> Error: Resource URI template piece 'helloWorld' should be cased like 'hello_world'
 
 

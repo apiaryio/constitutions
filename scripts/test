@@ -1,0 +1,20 @@
+#!/bin/bash
+
+LINTER_CMD=apilint
+
+BASE_DIR=.
+STYLEGUIDES_DIR=$BASE_DIR/styleguides
+RULES_DIR=$BASE_DIR/rules
+
+# Iterate on rules
+
+
+  # Iterate on good examples
+    # Expect them to pass
+     # exit 1 if not
+  # Iterate on all bad exapmles
+    # Expect them to fail
+    # Expect the message
+    # exit 1 if not
+
+# Exit 0
