@@ -1,9 +1,7 @@
 ###URIs are in uderscore delimited format
-Applies to API Elements`root`
+Applies to API Elements`hrefTemplate`
 
-Textual description of a rule
-
-
+URI template components, URI template parameters, and request/response body properties should use snake_casing.
 
 #### Good Examples
 ##### Underscore delimited
