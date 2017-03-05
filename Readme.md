@@ -1,14 +1,13 @@
-# Contracts for API Design Style Guides and Rules
+# Contracts for API Design Style Guides and Rules [![CircleCI](https://circleci.com/gh/apiaryio/constitutions.svg?style=svg&circle-token=32b6b19a59e02fdb795d2f47c80e37e2a2a9a033&ver=1)](https://circleci.com/gh/apiaryio/constitutions)
 
-[![CircleCI](https://circleci.com/gh/apiaryio/constitutions.svg?style=svg&circle-token=32b6b19a59e02fdb795d2f47c80e37e2a2a9a033)](https://circleci.com/gh/apiaryio/constitutions)
-
-Directory of reusable API Design Style Guide Rules specified by executable examples for API Descirption Language linters test-driven development, CI, portability, up-to-date documentation and preventing regressions and unwanted changes in behavior of underying Style Guide engines.
+Directory of reusable API Design Style Guide Rules specified by executable examples for test-driven development of API Description Language linters, CI, portability, up-to-date documentation and preventing regressions caused by unwanted changes in behavior of underying Style Guide engines.
 
 ## How to write an executable, long-lasting API Design Style Guide
 
 ### 1. Prepare the Style Guide concepually
 - Catch the idea
 - Create a formal, textual specification
+- Collect all the PDFs, Google Docs, Markdowns, READMEs, rtfs and and docxs you already have in your drawers
 
 ### 2. Breakdown the specification into single rules
 - Add good and bad examples for every single rule using API Description language (OAS/Swagger, API Blueprint, RAML, ...)
@@ -20,7 +19,7 @@ Directory of reusable API Design Style Guide Rules specified by executable examp
 - Make the linter **fail** on all **bad examples**
 
 ```
-$ /scripts/test
+$ ./scripts/test
 Testing styleguide 'sample-styleguide'
   Testing rule 'sample-rule'
     Expecting good example 'sample-good-example' to pass
@@ -69,7 +68,6 @@ It's just all files and a convention for a directory structure
 │     │     ├ description                 - Bad example verbal description
 │     │     ├ error                       - Expected error message for the rule violation
 │     │     └ title                       - Bad Example human undesrdable title
-enging
 │     └ good-examples                     - Good examples directory for the rule
 │         └ sample-good-example           - Sample good example directory, clone to create a new one
 │           ├ README.md                   - Genesrated Good Example Readme, DO NOT EDIT

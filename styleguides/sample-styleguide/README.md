@@ -1,4 +1,4 @@
-# Example API Elements Style Guide Boilerplate [![CircleCI](https://circleci.com/gh/apiaryio/constitutions.svg?style=svg&circle-token=32b6b19a59e02fdb795d2f47c80e37e2a2a9a033)](https://circleci.com/gh/apiaryio/constitutions)
+# Example API Elements Style Guide Boilerplate [![CircleCI](https://circleci.com/gh/apiaryio/constitutions.svg?style=svg&circle-token=32b6b19a59e02fdb795d2f47c80e37e2a2a9a033&ver=1)](https://circleci.com/gh/apiaryio/constitutions)
 
 Textual description of the styleguide, some introduction and some **Markdown**
 
