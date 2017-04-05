@@ -10,7 +10,8 @@ Directory of reusable API Design Style Guide Rules specified by executable examp
 - Collect all the PDFs, Google Docs, Markdowns, READMEs, rtfs and and docxs you already have in your drawers
 
 ### 2. Breakdown the specification into single rules
-- Add good and bad examples for every single rule using API Description language (OAS/Swagger, API Blueprint, ...)
+- Browse existing rules and re-use
+- Add good and bad examples for every single new rule using API Description language (OAS/Swagger, API Blueprint, ...)
 
 ### 3. TDD the linter rules, Add your Style Guide to CI
 - Hook-up an API Description language Style Guide engine in and execute examples against Rules assertion code as fixtures in your tests (see: `/styleguide/sample-styleguide/linter/linter`
