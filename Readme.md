@@ -1,6 +1,6 @@
-# Contracts for API Design Style Guides and Rules [![CircleCI](https://circleci.com/gh/apiaryio/constitutions.svg?style=svg&circle-token=32b6b19a59e02fdb795d2f47c80e37e2a2a9a033&ver=1)](https://circleci.com/gh/apiaryio/constitutions)
+# API Design Style Guide Contracts [![CircleCI](https://circleci.com/gh/apiaryio/constitutions.svg?style=svg&circle-token=32b6b19a59e02fdb795d2f47c80e37e2a2a9a033&ver=1)](https://circleci.com/gh/apiaryio/constitutions)
 
-Directory of reusable API Design Style Guide Rules specified by executable examples for test-driven development of API Description Language linters, CI, portability, up-to-date documentation and preventing regressions caused by unwanted changes in behavior of underying Style Guide engines.
+Directory of reusable API Design Style Guide Rules specified by executable examples for test-driven development of API Description Language linters (style guide engines) to support CI, collaboration, versioning, portability, all the time up-to-date documentation and preventing regressions caused by unwanted changes in behavior of underying Style Guide engines.
 
 ## How to write an executable, long-lasting API Design Style Guide
 
@@ -10,7 +10,7 @@ Directory of reusable API Design Style Guide Rules specified by executable examp
 - Collect all the PDFs, Google Docs, Markdowns, READMEs, rtfs and and docxs you already have in your drawers
 
 ### 2. Breakdown the specification into single rules
-- Add good and bad examples for every single rule using API Description language (OAS/Swagger, API Blueprint, RAML, ...)
+- Add good and bad examples for every single rule using API Description language (OAS/Swagger, API Blueprint, ...)
 
 ### 3. TDD the linter rules, Add your Style Guide to CI
 - Hook-up an API Description language Style Guide engine in and execute examples against Rules assertion code as fixtures in your tests (see: `/styleguide/sample-styleguide/linter/linter`
