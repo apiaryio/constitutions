@@ -5,7 +5,7 @@ Textual description of the styleguide, some introduction and some **Markdown**
 
 ## Rules
 
-###URIs are in uderscore delimited format
+### URIs are in uderscore delimited format
 Applies to API Elements`hrefTemplate`
 
 URI template components, URI template parameters, and request/response body properties should use snake_casing.
