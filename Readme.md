@@ -4,7 +4,7 @@
 
 This repository containts executable examples of API Design Style Guide Rules (API Blueprint, OpeAPI/Swagger, ... code snippets) for test-driven development of API Description Language linters (style guide engines) to enable vendor indepndence, all the time up-to-date documentation tested in CI and preventing regressions caused by unwanted changes in behavior of underying Style Guide engines and linters implementation.
 
-## How to write an executable, long-lasting API Design Style Guide collaboratively
+## How to write an API Design Style Guide
 
 ### 1. Prepare the Style Guide concepually
 - Catch the idea
