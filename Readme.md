@@ -1,6 +1,6 @@
 # API Design Style Guide Contracts [![CircleCI](https://circleci.com/gh/apiaryio/constitutions.svg?style=svg&circle-token=32b6b19a59e02fdb795d2f47c80e37e2a2a9a033&ver=1)](https://circleci.com/gh/apiaryio/constitutions)
 
-**Define API Style Guides collaboratvelly on examples.** 
+> **Let's define API Style Guides collaboratvelly on examples.** 
 
 This repository containts executable examples of API Design Style Guide Rules (API Blueprint, OpeAPI/Swagger, ... code snippets) for test-driven development of API Description Language linters (style guide engines) to enable vendor indepndence, all the time up-to-date documentation tested in CI and preventing regressions caused by unwanted changes in behavior of underying Style Guide engines and linters implementation.
 
