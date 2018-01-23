@@ -8,14 +8,14 @@ This repository containts executable examples of API Design Style Guide Rules (A
 
 ### 1. Prepare the Style Guide concepually
 - Catch the idea
-- Create a formal, textual specification
+- Create a written free-form verbal documentaion, formal specification, white paper etc..
 - Collect all the PDFs, Google Docs, Markdowns, READMEs, rtfs and and docxs you already have in your drawers
 
 ### 2. Breakdown the specification into single rules
-- Browse existing rules and re-use
+- Identify and isolate singel rules in the in the textual styleguide you created in the step 1
 - Add good and bad examples for every single new rule using API Description language (OAS/Swagger, API Blueprint, ...)
 
-### 3. TDD the linter rules, Add your Style Guide to CI
+### 3. TDD of the rules, add your Style Guide to CI
 - Hook-up an API Description language Style Guide engine in and execute examples against Rules assertion code as fixtures in your tests (see: `/styleguide/sample-styleguide/linter/linter`
 
 - Make the linter **pass** on all **good examples**
