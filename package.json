@@ -1,0 +1,31 @@
+{
+  "name": "voight-kampff",
+  "url": "https://github.com/apiaryio/constitutions",
+  "version": "0.0.1",
+  "scripts": {
+    "start": "./scripts/test"
+  },
+  "engines": {
+    "node": "v6.11.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:apiaryio/constitutions.git"
+  },
+  "files": [
+    "npm.js",
+    "voightkampff-apiary.apib"
+  ],
+  "author": "Apiary Inc. <support@apiary.io>",
+  "license": "MIT",
+  "dependencies": {
+    "glob": "^7.1.2",
+    "js-yaml": "^3.10.0",
+    "eslint": "",
+    "eslint-config-airbnb": "",
+    "eslint-plugin-import": "",
+    "eslint-plugin-jsx-a11y": "",
+    "eslint-plugin-react": "",
+    "lodash": ""
+  }
+}

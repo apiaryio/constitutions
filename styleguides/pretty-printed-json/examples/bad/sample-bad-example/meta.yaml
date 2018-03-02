@@ -1,0 +1,4 @@
+title: Pretty Printed JSON
+description: JSON body string is not a pretty printed JSON.
+error: JSON is not pretty-printed, expecting one key per line.
+
