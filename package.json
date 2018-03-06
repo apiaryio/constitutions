@@ -1,5 +1,5 @@
 {
-  "name": "voight-kampff",
+  "name": "constitutions",
   "url": "https://github.com/apiaryio/constitutions",
   "version": "0.0.1",
   "scripts": {
@@ -12,13 +12,16 @@
     "type": "git",
     "url": "git@github.com:apiaryio/constitutions.git"
   },
-  "files": [
-    "npm.js",
-    "voightkampff-apiary.apib"
+  "contributors": [
+    {
+      "name": "tu1ly",
+      "email": "peter.grilli@oracle.com"
+    }
   ],
   "author": "Apiary Inc. <support@apiary.io>",
   "license": "MIT",
   "dependencies": {
+    //"acorn": "5.2.1",
     "glob": "^7.1.2",
     "js-yaml": "^3.10.0",
     "eslint": "",
@@ -26,6 +29,8 @@
     "eslint-plugin-import": "",
     "eslint-plugin-jsx-a11y": "",
     "eslint-plugin-react": "",
-    "lodash": ""
+    "lodash": "",
+    "webpack": "",
+    "nconf": ""
   }
 }

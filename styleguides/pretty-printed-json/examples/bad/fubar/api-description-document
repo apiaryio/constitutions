@@ -1,0 +1,27 @@
+FORMAT: 1A
+
+# test
+
+## test [/test]
+
+
+### test post [POST]
+
++ Request (application/json)
+
+        {"id": 1,
+                    "name": { "first":
+                "John"
+                ,
+           "last":
+           "Snow"}
+           }
+
++ Response 200 (application/json)
+
+        {"id": 1,
+        "name": {
+        "first":
+        "John", "last":
+        "Snow"}}
+        "Snow"}}

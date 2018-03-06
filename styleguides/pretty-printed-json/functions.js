@@ -1,4 +1,14 @@
+const helpers = require('./helpers');
+
+/*
+ Validates if JSON body string is a pretty printed JSON. It naively expects
+ at least one line per key in parsed object.
+
+ @targets: Request_Body, Response_Body
+ @minim: true
+ */
 function validatePrettyPrintedJson(json) {
+    _.each(json, function(a) {})
     let data;
 
     // eslint-disable-next-line no-param-reassign
@@ -20,19 +30,7 @@ function validatePrettyPrintedJson(json) {
 
     let keyCount = 0;
 
-    const countKeys = (obj) => {
-        // eslint-disable-next-line guard-for-in
-        for (const key in obj) {
-            if (typeof (obj[key]) === 'object') {
-                keyCount += 1;
-                countKeys(obj[key]);
-            } else {
-                keyCount += 1;
-            }
-        }
-    };
-
-    countKeys(data);
+    helpers.countKeys(data);
 
     const linesCount = json.split('\n').length;
 
@@ -41,3 +39,8 @@ function validatePrettyPrintedJson(json) {
     }
     return 'JSON is not pretty-printed, expecting one key per line.';
 }
+
+
+module.exports = {
+    validatePrettyPrintedJson,
+};

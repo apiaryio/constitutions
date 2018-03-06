@@ -3,3 +3,4 @@ intent: URI template components, URI template parameters, and request/response b
 allowedTargets:
   - hrefTemplate
 minim: true
+functionName: someFunction

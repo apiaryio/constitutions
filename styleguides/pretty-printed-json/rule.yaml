@@ -4,3 +4,4 @@ allowedTargets:
   - Request_Body
   - Response_Body
 minim: true
+functionName: validatePrettyPrintedJson
