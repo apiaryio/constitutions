@@ -3,7 +3,8 @@
   "url": "https://github.com/apiaryio/constitutions",
   "version": "0.0.1",
   "scripts": {
-    "start": "./scripts/test"
+    "start": "./scripts/test",
+    "pretest": "eslint --ignore-path .gitignore . "
   },
   "engines": {
     "node": "v6.11.1"
@@ -21,7 +22,6 @@
   "author": "Apiary Inc. <support@apiary.io>",
   "license": "MIT",
   "dependencies": {
-    //"acorn": "5.2.1",
     "glob": "^7.1.2",
     "js-yaml": "^3.10.0",
     "eslint": "",

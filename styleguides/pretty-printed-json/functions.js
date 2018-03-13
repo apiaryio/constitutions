@@ -8,39 +8,34 @@ const helpers = require('./helpers');
  @minim: true
  */
 function validatePrettyPrintedJson(json) {
-    _.each(json, function(a) {})
-    let data;
+  let data;
 
-    // eslint-disable-next-line no-param-reassign
-    json = json.toValue();
+  // eslint-disable-next-line no-param-reassign
+  json = json.toValue();
 
-    if ((json == null) || (json === '')) {
-        return true;
-    }
+  if ((json == null) || (json === '')) {
+    return true;
+  }
 
-    try {
-        data = JSON.parse(json);
-    } catch (e) {
-        return true;
-    }
+  try {
+    data = JSON.parse(json);
+  } catch (e) {
+    return true;
+  }
 
-    if (typeof (data) !== 'object') {
-        return true;
-    }
+  if (typeof (data) !== 'object') {
+    return true;
+  }
 
-    let keyCount = 0;
+  const linesCount = json.split('\n').length;
 
-    helpers.countKeys(data);
-
-    const linesCount = json.split('\n').length;
-
-    if (linesCount >= keyCount) {
-        return true;
-    }
-    return 'JSON is not pretty-printed, expecting one key per line.';
+  if (linesCount >= helpers.countKeys(data)) {
+    return true;
+  }
+  return 'JSON is not pretty-printed, expecting one key per line.';
 }
 
 
 module.exports = {
-    validatePrettyPrintedJson,
+  validatePrettyPrintedJson,
 };

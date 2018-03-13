@@ -1,7 +1,7 @@
 function someFunction(data) {
-    console.error('aaa');
-    return 'error';
+  console.error(data);
+  return 'error';
 }
 module.exports = {
-    someFunction,
+  someFunction,
 };

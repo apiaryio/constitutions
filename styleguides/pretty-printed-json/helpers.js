@@ -1,17 +1,18 @@
-
-
-function countKeys (obj) {
-    // eslint-disable-next-line guard-for-in
-    for (const key in obj) {
-        if (typeof (obj[key]) === 'object') {
-            keyCount += 1;
-            countKeys(obj[key]);
-        } else {
-            keyCount += 1;
-        }
+function countKeys(o) {
+  let keyCount = 0;
+  // eslint-disable-next-line guard-for-in, no-restricted-syntax
+  for (const key in o) {
+    if (typeof (o[key]) === 'object') {
+      keyCount += 1;
+      countKeys(o[key]);
+    } else {
+      keyCount += 1;
     }
+  }
+
+  return keyCount;
 }
 
 module.exports = {
-    countKeys,
+  countKeys,
 };

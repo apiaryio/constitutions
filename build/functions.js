@@ -237,3 +237,18 @@ module.exports = {
 someFunction,
 validatePrettyPrintedJson,
 };
+
+
+function someFunction(data) {
+    return someFunction_webpack(data);
+}
+    
+
+function validatePrettyPrintedJson(data) {
+    return validatePrettyPrintedJson_webpack(data);
+}
+    
+module.exports = {
+someFunction,
+validatePrettyPrintedJson,
+};
