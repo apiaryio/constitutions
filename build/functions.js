@@ -79,22 +79,23 @@
 /* 0 */
 /***/ (function(module, exports) {
 
-
-
-function countKeys (obj) {
-    // eslint-disable-next-line guard-for-in
-    for (const key in obj) {
-        if (typeof (obj[key]) === 'object') {
-            keyCount += 1;
-            countKeys(obj[key]);
-        } else {
-            keyCount += 1;
-        }
+function countKeys(o) {
+  let keyCount = 0;
+  // eslint-disable-next-line guard-for-in, no-restricted-syntax
+  for (const key in o) {
+    if (typeof (o[key]) === 'object') {
+      keyCount += 1;
+      countKeys(o[key]);
+    } else {
+      keyCount += 1;
     }
+  }
+
+  return keyCount;
 }
 
 module.exports = {
-    countKeys,
+  countKeys,
 };
 
 
@@ -103,7 +104,6 @@ module.exports = {
 /***/ (function(module, exports, __webpack_require__) {
 
 const helpers = __webpack_require__(0);
-//const _ = require('lodash');
 
 /*
  Validates if JSON body string is a pretty printed JSON. It naively expects
@@ -113,41 +113,36 @@ const helpers = __webpack_require__(0);
  @minim: true
  */
 function validatePrettyPrintedJson(json) {
-    _.each(json, function(a) {})
-    let data;
+  let data;
 
-    // eslint-disable-next-line no-param-reassign
-    json = json.toValue();
+  // eslint-disable-next-line no-param-reassign
+  json = json.toValue();
 
-    if ((json == null) || (json === '')) {
-        return true;
-    }
+  if ((json == null) || (json === '')) {
+    return true;
+  }
 
-    try {
-        data = JSON.parse(json);
-    } catch (e) {
-        return true;
-    }
+  try {
+    data = JSON.parse(json);
+  } catch (e) {
+    return true;
+  }
 
-    if (typeof (data) !== 'object') {
-        return true;
-    }
+  if (typeof (data) !== 'object') {
+    return true;
+  }
 
-    let keyCount = 0;
+  const linesCount = json.split('\n').length;
 
-    helpers.countKeys(data);
-
-    const linesCount = json.split('\n').length;
-
-    if (linesCount >= keyCount) {
-        return true;
-    }
-    return 'JSON is not pretty-printed, expecting one key per line.';
+  if (linesCount >= helpers.countKeys(data)) {
+    return true;
+  }
+  return 'JSON is not pretty-printed, expecting one key per line.';
 }
 
 
 module.exports = {
-    validatePrettyPrintedJson,
+  validatePrettyPrintedJson,
 };
 
 
@@ -156,11 +151,11 @@ module.exports = {
 /***/ (function(module, exports) {
 
 function someFunction(data) {
-    console.error('aaa');
-    return 'error';
+  console.error(data);
+  return 'error';
 }
 module.exports = {
-    someFunction,
+  someFunction,
 };
 
 
@@ -178,66 +173,6 @@ validatePrettyPrintedJson_webpack,
 
 /***/ })
 /******/ ]);
-
-function someFunction(data) {
-    return someFunction_webpack(data);
-}
-
-
-function validatePrettyPrintedJson(data) {
-    return validatePrettyPrintedJson_webpack(data);
-}
-
-module.exports = {
-someFunction,
-validatePrettyPrintedJson,
-};
-
-
-function someFunction(data) {
-    return someFunction_webpack(data);
-}
-    
-
-function validatePrettyPrintedJson(data) {
-    return validatePrettyPrintedJson_webpack(data);
-}
-    
-module.exports = {
-someFunction,
-validatePrettyPrintedJson,
-};
-
-
-function someFunction(data) {
-    return someFunction_webpack(data);
-}
-    
-
-function validatePrettyPrintedJson(data) {
-    return validatePrettyPrintedJson_webpack(data);
-}
-    
-module.exports = {
-someFunction,
-validatePrettyPrintedJson,
-};
-
-
-function someFunction(data) {
-    return someFunction_webpack(data);
-}
-    
-
-function validatePrettyPrintedJson(data) {
-    return validatePrettyPrintedJson_webpack(data);
-}
-    
-module.exports = {
-someFunction,
-validatePrettyPrintedJson,
-};
-
 
 function someFunction(data) {
     return someFunction_webpack(data);
