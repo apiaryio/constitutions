@@ -6,7 +6,7 @@ blablablah
 ## Rules
 
 ### URIs are in uderscore delimited format
-Applies to API Elements `hrefTemplate`
+Applies to API Elements `Response_Headers`
 
 URI template components, URI template parameters, and request/response body properties should use snake_casing.
 
