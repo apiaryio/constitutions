@@ -9,7 +9,7 @@ module.exports = {
     'no-console': 0,
     'func-names': ['error', 'never'],
     'no-underscore-dangle': 0,
-    'max-len': ["error", { "code": 120 }],
+    'max-len': ["error", { "code": 130 }],
     'func-style': ["error", "declaration"]
   }
 };
