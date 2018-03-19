@@ -1,0 +1,20 @@
+[
+  {
+    "intent": "URI template components, URI template parameters, and request/response body properties should use snake_casing.",
+    "ruleName": "sample-rule",
+    "functionName": "someFunction",
+    "target": "Response_Headers"
+  },
+  {
+    "intent": "JSON body string is a pretty printed JSON. It naively expects at least one line per key in parsed object.",
+    "ruleName": "pretty-printed-json",
+    "functionName": "validatePrettyPrintedJson",
+    "target": "Request_Body"
+  },
+  {
+    "intent": "JSON body string is a pretty printed JSON. It naively expects at least one line per key in parsed object.",
+    "ruleName": "pretty-printed-json",
+    "functionName": "validatePrettyPrintedJson",
+    "target": "Response_Body"
+  }
+]
