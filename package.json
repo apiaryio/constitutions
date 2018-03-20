@@ -3,8 +3,9 @@
   "url": "https://github.com/apiaryio/constitutions",
   "version": "0.0.1",
   "scripts": {
-    "start": "./scripts/test",
-    "pretest": "eslint --ignore-path .eslintignore ."
+    "build": "./scripts/build",
+    "pretest": "eslint --ignore-path .eslintignore .",
+    "test": "./scripts/test"
   },
   "engines": {
     "node": "v6.11.1"
@@ -22,6 +23,7 @@
   "author": "Apiary Inc. <support@apiary.io>",
   "license": "MIT",
   "dependencies": {
+    "async": "",
     "glob": "^7.1.2",
     "js-yaml": "^3.10.0",
     "eslint": "",
@@ -31,6 +33,7 @@
     "eslint-plugin-react": "",
     "lodash": "",
     "webpack": "",
-    "nconf": ""
+    "nconf": "",
+    "request": ""
   }
 }

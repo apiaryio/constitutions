@@ -1,6 +1,6 @@
 title: URIs are in uderscore delimited format
 intent: URI template components, URI template parameters, and request/response body properties should use snake_casing.
 allowedTargets:
-  - Response_Headers
+  - Resource_URI_Template
 minim: true
 functionName: someFunction

@@ -1,12 +1,12 @@
 ### URIs are in uderscore delimited format
-Applies to API Elements `Response_Headers`
+Applies to API Elements `Resource_URI_Template`
 
 URI template components, URI template parameters, and request/response body properties should use snake_casing.
 
 #### Good Examples
-##### Underscore delimited
+##### /hello_world resource
 
-URI template fragmets are all underscore delimited
+some description
 
 ```
 swagger: "2.0"
@@ -32,9 +32,9 @@ paths:
 
 
 #### Bad Examples
-##### Camel case
+##### no /hello_world resource
 
-URI template has camel case formatted fragment
+some description
 
 ```
 swagger: "2.0"
@@ -57,7 +57,7 @@ paths:
 
 ```
 
-> Error: Resource URI template piece 'helloWorld' should be cased like 'hello_world'
+> Error: ooooo nooooooo error!
 
 
 

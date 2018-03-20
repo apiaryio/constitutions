@@ -6,14 +6,14 @@ blablablah
 ## Rules
 
 ### URIs are in uderscore delimited format
-Applies to API Elements `Response_Headers`
+Applies to API Elements `Resource_URI_Template`
 
 URI template components, URI template parameters, and request/response body properties should use snake_casing.
 
 #### Good Examples
-##### Underscore delimited
+##### /hello_world resource
 
-URI template fragmets are all underscore delimited
+some description
 
 ```
 swagger: "2.0"
@@ -39,9 +39,9 @@ paths:
 
 
 #### Bad Examples
-##### Camel case
+##### no /hello_world resource
 
-URI template has camel case formatted fragment
+some description
 
 ```
 swagger: "2.0"
@@ -64,7 +64,7 @@ paths:
 
 ```
 
-> Error: Resource URI template piece 'helloWorld' should be cased like 'hello_world'
+> Error: ooooo nooooooo error!
 
 
 
@@ -76,7 +76,7 @@ Applies to API Elements `Request_Body, Response_Body`
 JSON body string is a pretty printed JSON. It naively expects at least one line per key in parsed object.
 
 #### Good Examples
-##### Pretty Printed JSON
+##### Pretty Printed JSON Request_Body
 
 JSON body string is a pretty printed JSON.
 
@@ -102,7 +102,7 @@ FORMAT: 1A
 
 ```
 
-##### Pretty Printed JSON
+##### Pretty Printed JSON Response_Body
 
 JSON body string is a pretty printed JSON.
 
@@ -131,7 +131,7 @@ FORMAT: 1A
 
 
 #### Bad Examples
-##### Pretty Printed JSON
+##### Pretty Printed JSON fubar
 
 JSON body string is not a pretty printed JSON but fubar.
 
@@ -147,22 +147,11 @@ FORMAT: 1A
 
 + Request (application/json)
 
-        {"id": 1,
-                    "name": { "first":
-                "John"
-                ,
-           "last":
-           "Snow"}
-           }
+        {"id": 1, "name": { "first": "John", "last": "Snow"}, "weapon": "sword"}
 
 + Response 200 (application/json)
 
-        {"id": 1,
-        "name": {
-        "first":
-        "John", "last":
-        "Snow"}}
-        "Snow"}}
+        {"id": 1, "name": { "first": "John", "last": "Snow"}, "weapon": "sword"}
 
 ```
 
@@ -184,11 +173,11 @@ FORMAT: 1A
 
 + Request (application/json)
 
-        {"id": 1, "name": { "first": "John", "last": "Snow"}}
+        {"id": 1, "name": { "first": "John", "last": "Snow"}, "weapon": "sword"}
 
 + Response 200 (application/json)
 
-        {"id": 1, "name": { "first": "John", "last": "Snow"}}
+        {"id": 1, "name": { "first": "John", "last": "Snow"}, "weapon": "sword"}
 
 ```
 

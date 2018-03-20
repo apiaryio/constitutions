@@ -1,7 +1,10 @@
 function someFunction(data) {
-  console.error(data);
-  return 'error';
+  if (data.toValue() !== '/hello_world') {
+    return 'ooooo nooooooo error!';
+  }
+  return true;
 }
+
 module.exports = {
   someFunction,
 };

@@ -3,7 +3,7 @@
 URIs are in uderscore delimited format
 URI template components, URI template parameters, and request/response body properties should use snake_casing.
 
-@targets: Response_Headers
+@targets: Resource_URI_Template
 @minim: true
 */
 function someFunction(data) {
@@ -179,9 +179,12 @@ module.exports = {
 /***/ (function(module, exports) {
 
 function someFunction(data) {
-  console.error(data);
-  return 'error';
+  if (data.toValue() !== '/hello_world') {
+    return 'ooooo nooooooo error!';
+  }
+  return true;
 }
+
 module.exports = {
   someFunction,
 };

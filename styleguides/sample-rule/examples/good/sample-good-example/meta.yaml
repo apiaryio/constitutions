@@ -1,2 +1,3 @@
-title: Underscore delimited
-description: URI template fragmets are all underscore delimited
+title: /hello_world resource
+description: some description
+target: Resource_URI_Template

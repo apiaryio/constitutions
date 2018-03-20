@@ -1,3 +1,8 @@
 #!/bin/bash
+echo 'Building ...'
+
+node ./lib/build.js
+
+echo 'Running tests ...'
 
 node ./lib/test.js
