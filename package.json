@@ -1,7 +1,7 @@
 {
   "name": "constitutions",
   "url": "https://github.com/apiaryio/constitutions",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "scripts": {
     "build": "./scripts/build",
     "pretest": "eslint --ignore-path .eslintignore .",
