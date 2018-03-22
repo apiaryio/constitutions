@@ -11,6 +11,7 @@ module.exports = {
     'no-underscore-dangle': 0,
     'max-len': ["error", { 'code': 130 }],
     'func-style': ['error', 'declaration'],
-    'no-restricted-syntax': 0
+    'no-restricted-syntax': 0,
+    'spaced-comment': 0
   }
 };

@@ -1,0 +1,6 @@
+title: US spelling used
+description: word `scandalizing` should be spelled `scandalising`
+error: ooooo nooooooo error!
+target:
+    - Request_Body
+    - Response_Body

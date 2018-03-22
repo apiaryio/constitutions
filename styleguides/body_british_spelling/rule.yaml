@@ -1,0 +1,7 @@
+title: URIs are in uderscore delimited format
+intent: URI template components, URI template parameters, and request/response body properties should use snake_casing.
+allowedTargets:
+    - Request_Body
+    - Response_Body
+minim: true
+functionName: validateBodyBritishSpelling

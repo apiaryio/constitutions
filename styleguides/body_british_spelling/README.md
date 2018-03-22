@@ -1,10 +1,3 @@
-# Tully's styleguides [![CircleCI](https://circleci.com/gh/apiaryio/constitutions.svg?style=svg&circle-token=32b6b19a59e02fdb795d2f47c80e37e2a2a9a033&ver=1)](https://circleci.com/gh/apiaryio/constitutions)
-
-blablablah
-
-
-## Rules
-
 ### URIs are in uderscore delimited format
 Applies to API Targets `Request_Body, Response_Body`
 
@@ -75,9 +68,6 @@ FORMAT: 1A
 ```
 
 > Error: ooooo nooooooo error!
-
-
-
 
 
 
