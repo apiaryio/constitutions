@@ -1,5 +1,5 @@
 ### <%= title %>
-Applies to API Elements `<%= elements %>`
+Applies to API Targets `<%= elements %>`
 
 <%= description %>
 

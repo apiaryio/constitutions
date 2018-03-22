@@ -1,5 +1,5 @@
 title: Tully's styleguides
 description: blablablah
 rules:
-  - sample-rule
-  - pretty-printed-json
+  - sample_rule
+

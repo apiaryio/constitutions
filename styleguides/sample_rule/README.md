@@ -1,5 +1,5 @@
 ### URIs are in uderscore delimited format
-Applies to API Elements `Resource_URI_Template`
+Applies to API Targets `Resource_URI_Template`
 
 URI template components, URI template parameters, and request/response body properties should use snake_casing.
 
@@ -7,6 +7,8 @@ URI template components, URI template parameters, and request/response body prop
 ##### /hello_world resource
 
 some description
+
+Applies to API Target(s) `Resource_URI_Template`
 
 ```
 swagger: "2.0"
@@ -35,6 +37,8 @@ paths:
 ##### no /hello_world resource
 
 some description
+
+Applies to API Target(s) `Resource_URI_Template`
 
 ```
 swagger: "2.0"

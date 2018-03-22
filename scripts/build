@@ -1,8 +1,20 @@
 #!/bin/bash
 echo 'Running eslint ...'
 
-eslint --ignore-path .eslintignore .
+eslint --ignore-path .eslintignore . 2
+
+if [ $? -ne 0 ]
+then
+    exit 1
+fi
 
 echo 'Building ...'
 
-node ./lib/build.js
+node ./lib/build.js 2
+
+if [ $? -ne 0 ]
+then
+    exit 1
+fi
+
+echo 'Done'
