@@ -1,7 +1,7 @@
-### URIs are in uderscore delimited format
+### Only British spelling
 Applies to API Targets `Request_Body, Response_Body`
 
-URI template components, URI template parameters, and request/response body properties should use snake_casing.
+Validates if there is no american spelling in JSON object bodies
 
 #### Good Examples
 ##### US spelling not used
@@ -67,7 +67,7 @@ FORMAT: 1A
 
 ```
 
-> Error: ooooo nooooooo error!
+> Error: Contains american spelling of word: scandalizing
 
 
 

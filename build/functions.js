@@ -1,7 +1,18 @@
 
 /*
-URIs are in uderscore delimited format
-URI template components, URI template parameters, and request/response body properties should use snake_casing.
+Sample rule title
+Intent of the rule/description
+
+@targets: Resource_URI_Template, Response_Body
+@minim: true
+*/
+function someFunction(data) {
+  return functions.someFunction_webpack(data);
+}
+
+/*
+Only British spelling
+Validates if there is no american spelling in JSON object bodies
 
 @targets: Request_Body, Response_Body
 @minim: true
@@ -89,7 +100,7 @@ var functions =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 2);
+/******/ 	return __webpack_require__(__webpack_require__.s = 3);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -202,12 +213,31 @@ module.exports = {
 
 /***/ }),
 /* 2 */
+/***/ (function(module, exports) {
+
+function someFunction(data) {
+  if (data.toValue() !== '/hello_world') {
+    return 'ooooo nooooooo error!';
+  }
+  return true;
+}
+
+module.exports = {
+  someFunction,
+};
+
+
+/***/ }),
+/* 3 */
 /***/ (function(module, exports, __webpack_require__) {
 
+// eslint-disable-next-line max-len, camelcase
+const someFunction_webpack = __webpack_require__(2).someFunction;
 // eslint-disable-next-line max-len, camelcase
 const validateBodyBritishSpelling_webpack = __webpack_require__(1).validateBodyBritishSpelling;
 
 module.exports = {
+  someFunction_webpack,
   validateBodyBritishSpelling_webpack,
 };
 

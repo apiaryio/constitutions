@@ -1,12 +1,12 @@
-### URIs are in uderscore delimited format
-Applies to API Targets `Resource_URI_Template`
+### Sample rule title
+Applies to API Targets `Resource_URI_Template, Response_Body`
 
-URI template components, URI template parameters, and request/response body properties should use snake_casing.
+Intent of the rule/description
 
 #### Good Examples
 ##### /hello_world resource
 
-some description
+some description for 'should pass' example
 
 Applies to API Target(s) `Resource_URI_Template`
 
@@ -36,9 +36,9 @@ paths:
 #### Bad Examples
 ##### no /hello_world resource
 
-some description
+some description for 'should fail' example
 
-Applies to API Target(s) `Resource_URI_Template`
+Applies to API Target(s) `Resource_URI_Template, Response_Body`
 
 ```
 swagger: "2.0"

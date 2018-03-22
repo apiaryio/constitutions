@@ -1,5 +1,5 @@
-title: URIs are in uderscore delimited format
-intent: URI template components, URI template parameters, and request/response body properties should use snake_casing.
+title: Only British spelling
+intent: Validates if there is no american spelling in JSON object bodies
 allowedTargets:
     - Request_Body
     - Response_Body

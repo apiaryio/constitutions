@@ -1,4 +1,6 @@
-title: no /hello_world resource
-description: some description
+title: title for 'should fail' example
+description: some description for 'should fail' example
 error: ooooo nooooooo error!
-target: Resource_URI_Template
+target:
+ - Resource_URI_Template
+ - Response_Body
