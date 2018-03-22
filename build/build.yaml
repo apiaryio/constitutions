@@ -1,6 +1,5 @@
 title: Tully's styleguides
-description: blablablah
+description: description of this satyleguide
 rules:
   - sample_rule
-#  - pretty-printed-json
   - body_british_spelling

@@ -1,6 +1,6 @@
 # Tully's styleguides [![CircleCI](https://circleci.com/gh/apiaryio/constitutions.svg?style=svg&circle-token=32b6b19a59e02fdb795d2f47c80e37e2a2a9a033&ver=1)](https://circleci.com/gh/apiaryio/constitutions)
 
-blablablah
+description of this satyleguide
 
 
 ## Rules
@@ -11,7 +11,7 @@ Applies to API Targets `Resource_URI_Template, Response_Body`
 Intent of the rule/description
 
 #### Good Examples
-##### /hello_world resource
+##### title for 'should pass' example
 
 some description for 'should pass' example
 
@@ -41,7 +41,7 @@ paths:
 
 
 #### Bad Examples
-##### no /hello_world resource
+##### title for 'should fail' example
 
 some description for 'should fail' example
 

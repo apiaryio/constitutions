@@ -4,7 +4,7 @@ Applies to API Targets `Resource_URI_Template, Response_Body`
 Intent of the rule/description
 
 #### Good Examples
-##### /hello_world resource
+##### title for 'should pass' example
 
 some description for 'should pass' example
 
@@ -34,7 +34,7 @@ paths:
 
 
 #### Bad Examples
-##### no /hello_world resource
+##### title for 'should fail' example
 
 some description for 'should fail' example
 
