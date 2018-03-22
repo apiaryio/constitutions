@@ -9,10 +9,12 @@ FORMAT: 1A
 
 + Request (application/json)
 
-        {"id": 1}
+        {
+            "id": 1
+        }
 
 + Response 200 (application/json)
 
         {
-            "id": 1
+            id": 1
         }

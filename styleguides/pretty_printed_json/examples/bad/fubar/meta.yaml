@@ -1,5 +1,7 @@
 title: Pretty Printed JSON fubar
 description: JSON body string is not a pretty printed JSON but fubar.
-target: Response_Body
+target:
+  - Response_Body
+  - Request_Body
 error: JSON is not pretty-printed, expecting one key per line.
 

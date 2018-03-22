@@ -27,7 +27,7 @@ function validatePrettyPrintedJson(json) {
     return true;
   }
 
-  const linesCount = json.split('\n').length;
+  const linesCount = json.split('\n').length - 1;
 
   if (linesCount >= helpers.countKeys(data)) {
     return true;
