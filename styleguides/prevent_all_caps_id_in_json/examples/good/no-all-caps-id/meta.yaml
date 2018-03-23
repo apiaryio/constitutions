@@ -1,0 +1,5 @@
+title: All-caps ID's
+description: All-caps ID's are present in request or response bodies
+target:
+    - Request_Body
+    - Response_Body

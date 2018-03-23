@@ -34,5 +34,17 @@
     "ruleName": "pretty_printed_json",
     "functionName": "validatePrettyPrintedJson",
     "target": "Response_Body"
+  },
+  {
+    "intent": "Validates if there is no property containing all-caps `ID` string in JSON object bodies.",
+    "ruleName": "prevent_all_caps_id_in_json",
+    "functionName": "preventAllCapsIdInJson",
+    "target": "Request_Body"
+  },
+  {
+    "intent": "Validates if there is no property containing all-caps `ID` string in JSON object bodies.",
+    "ruleName": "prevent_all_caps_id_in_json",
+    "functionName": "preventAllCapsIdInJson",
+    "target": "Response_Body"
   }
 ]

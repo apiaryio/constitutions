@@ -4,3 +4,4 @@ rules:
   - sample_rule
   - body_british_spelling
   - pretty_printed_json
+  - prevent_all_caps_id_in_json

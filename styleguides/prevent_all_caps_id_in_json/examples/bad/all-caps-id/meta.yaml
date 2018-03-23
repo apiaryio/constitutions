@@ -1,0 +1,6 @@
+title: No all-caps ID's
+description: No all-caps ID's are present in request nor response bodies
+error: 'Key "ID" contains all caps "ID".'
+target:
+    - Request_Body
+    - Response_Body

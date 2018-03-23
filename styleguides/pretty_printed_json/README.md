@@ -1,4 +1,4 @@
-### JSON body string is a pretty printed JSON.
+### Validates if JSON body string is a pretty printed JSON.
 Applies to API Targets `Request_Body, Response_Body`
 
 JSON body string is a pretty printed JSON. It naively expects at least one line per key in parsed object.

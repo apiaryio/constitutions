@@ -22,7 +22,7 @@ function validateBodyBritishSpelling(data) {
 }
 
 /*
-JSON body string is a pretty printed JSON.
+Validates if JSON body string is a pretty printed JSON.
 JSON body string is a pretty printed JSON. It naively expects at least one line per key in parsed object.
 
 @targets: Request_Body, Response_Body
@@ -30,6 +30,17 @@ JSON body string is a pretty printed JSON. It naively expects at least one line 
 */
 function validatePrettyPrintedJson(data) {
   return functions.validatePrettyPrintedJson_webpack(data);
+}
+
+/*
+No all-caps ID's
+Validates if there is no property containing all-caps `ID` string in JSON object bodies.
+
+@targets: Request_Body, Response_Body
+@minim: true
+*/
+function preventAllCapsIdInJson(data) {
+  return functions.preventAllCapsIdInJson_webpack(data);
 }
 
 
@@ -111,11 +122,64 @@ var functions =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 5);
+/******/ 	return __webpack_require__(__webpack_require__.s = 6);
 /******/ })
 /************************************************************************/
 /******/ ([
 /* 0 */
+/***/ (function(module, exports) {
+
+/*
+ Validates if there is no property containing all-caps `ID` string in JSON object bodies.
+
+ @targets: Request_Body, Response_Body
+ @minim: true
+ */
+function preventAllCapsIdInJson(data) {
+  // eslint-disable-next-line no-param-reassign
+  data = data.toValue();
+
+  if ((data == null) || (data === '')) {
+    return true;
+  }
+
+  try {
+    // eslint-disable-next-line no-param-reassign
+    data = JSON.parse(data);
+  } catch (error) {
+    return true;
+  }
+
+  if (typeof (data) !== 'object') {
+    return true;
+  }
+
+  function checkKeysForId(obj) {
+    // eslint-disable-next-line guard-for-in
+    for (const key in obj) {
+      if (typeof (obj[key]) === 'object') {
+        checkKeysForId(obj[key]);
+      } else if (key.match(/ID$/g) !== null) {
+        throw new Error(`Key "${key}" contains all caps "ID".`);
+      }
+    }
+  }
+
+  try {
+    checkKeysForId(data);
+    return true;
+  } catch (e) {
+    return e.message;
+  }
+}
+
+module.exports = {
+  preventAllCapsIdInJson,
+};
+
+
+/***/ }),
+/* 1 */
 /***/ (function(module, exports) {
 
 function countKeys(o) {
@@ -139,10 +203,10 @@ module.exports = {
 
 
 /***/ }),
-/* 1 */
+/* 2 */
 /***/ (function(module, exports, __webpack_require__) {
 
-const helpers = __webpack_require__(0);
+const helpers = __webpack_require__(1);
 
 /*
  Validates if JSON body string is a pretty printed JSON. It naively expects
@@ -173,8 +237,6 @@ function validatePrettyPrintedJson(json) {
 
   const linesCount = json.split('\n').length - 1;
 
-  //  return `${linesCount} >= ${helpers.countKeys(data)} : ${JSON.stringify(json.split('\n'))}
-  //  --- ${JSON.stringify(data, null, 2)}`;
   if (linesCount >= helpers.countKeys(data)) {
     return true;
   }
@@ -188,7 +250,7 @@ module.exports = {
 
 
 /***/ }),
-/* 2 */
+/* 3 */
 /***/ (function(module, exports) {
 
 // Import uri template
@@ -274,10 +336,10 @@ module.exports = {
 
 
 /***/ }),
-/* 3 */
+/* 4 */
 /***/ (function(module, exports, __webpack_require__) {
 
-const { _searchAmericanWord } = __webpack_require__(2);
+const { _searchAmericanWord } = __webpack_require__(3);
 
 function validateBodyBritishSpelling(data) {
   // eslint-disable-next-line no-param-reassign
@@ -296,7 +358,7 @@ module.exports = {
 
 
 /***/ }),
-/* 4 */
+/* 5 */
 /***/ (function(module, exports) {
 
 function someFunction(data) {
@@ -312,20 +374,23 @@ module.exports = {
 
 
 /***/ }),
-/* 5 */
+/* 6 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // eslint-disable-next-line max-len, camelcase
-const someFunction_webpack = __webpack_require__(4).someFunction;
+const someFunction_webpack = __webpack_require__(5).someFunction;
 // eslint-disable-next-line max-len, camelcase
-const validateBodyBritishSpelling_webpack = __webpack_require__(3).validateBodyBritishSpelling;
+const validateBodyBritishSpelling_webpack = __webpack_require__(4).validateBodyBritishSpelling;
 // eslint-disable-next-line max-len, camelcase
-const validatePrettyPrintedJson_webpack = __webpack_require__(1).validatePrettyPrintedJson;
+const validatePrettyPrintedJson_webpack = __webpack_require__(2).validatePrettyPrintedJson;
+// eslint-disable-next-line max-len, camelcase
+const preventAllCapsIdInJson_webpack = __webpack_require__(0).preventAllCapsIdInJson;
 
 module.exports = {
   someFunction_webpack,
   validateBodyBritishSpelling_webpack,
   validatePrettyPrintedJson_webpack,
+  preventAllCapsIdInJson_webpack,
 };
 
 
