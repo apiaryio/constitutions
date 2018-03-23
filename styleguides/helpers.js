@@ -77,4 +77,5 @@ module.exports = {
   _isUUID,
   _hasSpaces,
   _hasCamelCase,
+  parseUriTemplate,
 };

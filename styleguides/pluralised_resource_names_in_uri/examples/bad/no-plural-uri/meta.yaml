@@ -1,0 +1,4 @@
+title: URI is not plurarised
+description: Last part of the URI (`dog`) is not in plural form
+error: Last resource URI part "dog" is not in plural form.
+target: Resource_URI_Template

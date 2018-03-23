@@ -52,5 +52,11 @@
     "ruleName": "proper_action_status_code",
     "functionName": "validateProperActionStatusCode",
     "target": "Action"
+  },
+  {
+    "intent": "Validates if last literal part of URI template is in plural form.",
+    "ruleName": "pluralised_resource_names_in_uri",
+    "functionName": "validatePluralisedResourceNamesInUri",
+    "target": "Resource_URI_Template"
   }
 ]

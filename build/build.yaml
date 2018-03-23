@@ -6,3 +6,4 @@ rules:
   - pretty_printed_json
   - prevent_all_caps_id_in_json
   - proper_action_status_code
+  - pluralised_resource_names_in_uri

@@ -1,0 +1,6 @@
+title: Plural form URI template.
+intent: Validates if last literal part of URI template is in plural form.
+allowedTargets:
+  - Resource_URI_Template
+minim: true
+functionName: validatePluralisedResourceNamesInUri
