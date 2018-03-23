@@ -67,6 +67,10 @@ function _searchAmericanWord(string) {
   return '';
 }
 
+function _isDowncasedDashSeparated(string) {
+  return (!string) || (_isKebabCase(string) && !string.match(/[A-Z]/g)) || _isNormalCase(string);
+}
+
 module.exports = {
   _searchAmericanWord,
   _isPlural,
@@ -78,4 +82,5 @@ module.exports = {
   _hasSpaces,
   _hasCamelCase,
   parseUriTemplate,
+  _isDowncasedDashSeparated,
 };

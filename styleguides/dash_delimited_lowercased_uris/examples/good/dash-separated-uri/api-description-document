@@ -1,0 +1,10 @@
+FORMAT: 1A
+
+# test
+
+## test [/test-dash-and-lowercased/{id}]
+
+
+### test post [GET]
+
++ Request (application/json)

@@ -1,0 +1,4 @@
+title: Not dash separated
+description: Literal parts of the URI templates are not dash separated
+error: Uri part "/test_not_dash/" is not lowercased or dash separated.
+target: Resource_URI_Template

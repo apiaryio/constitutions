@@ -1,0 +1,7 @@
+title: URI templates are dash separated and lowercased
+intent:  Validates if literal parts of the URI templates are dash separated and lowercased.
+         It expects no underscores and capital characters.
+allowedTargets:
+  - Resource_URI_Template
+minim: true
+functionName: validateUriPartsDashSeparatedLowercase

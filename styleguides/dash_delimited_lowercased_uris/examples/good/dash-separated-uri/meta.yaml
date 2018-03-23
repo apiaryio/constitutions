@@ -1,0 +1,3 @@
+title: Dash separated and lowercased
+description: Literal parts of the URI templates are dash separated and lowercased
+target: Resource_URI_Template

@@ -58,5 +58,11 @@
     "ruleName": "pluralised_resource_names_in_uri",
     "functionName": "validatePluralisedResourceNamesInUri",
     "target": "Resource_URI_Template"
+  },
+  {
+    "intent": "Validates if literal parts of the URI templates are dash separated and lowercased. It expects no underscores and capital characters.",
+    "ruleName": "dash_delimited_lowercased_uris",
+    "functionName": "validateUriPartsDashSeparatedLowercase",
+    "target": "Resource_URI_Template"
   }
 ]
