@@ -46,5 +46,11 @@
     "ruleName": "prevent_all_caps_id_in_json",
     "functionName": "preventAllCapsIdInJson",
     "target": "Response_Body"
+  },
+  {
+    "intent": "Possible combinations are:\n   - 200: GET, DELETE, PATCH\n   - 201: POST\n   - 202: POST, DELETE, PATCH\n   - 206: GET\n",
+    "ruleName": "proper_action_status_code",
+    "functionName": "validateProperActionStatusCode",
+    "target": "Action"
   }
 ]

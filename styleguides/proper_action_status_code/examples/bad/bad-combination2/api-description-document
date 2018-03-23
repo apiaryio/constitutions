@@ -1,0 +1,16 @@
+FORMAT: 1A
+
+# test
+
+## test [/test]
+
+
+### test post [GET]
+
++ Request (application/json)
+
++ Response 201 (application/json)
+
+        {
+            "id": 1
+        }

@@ -1,0 +1,3 @@
+title: Good combination of request method and response status code
+description: 201 response status code is allowed for POST request
+target: Action
