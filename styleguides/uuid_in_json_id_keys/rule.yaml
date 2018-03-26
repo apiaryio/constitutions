@@ -1,0 +1,10 @@
+title: 'UUID `id` key'
+intent: 'It validates that value under `id` key in body JSON object is in format of
+        UUID [1].
+
+        [1] http://en.wikipedia.org/wiki/Universally_unique_identifier'
+allowedTargets:
+    - Request_Body
+    - Response_Body
+minim: true
+functionName: validateUUIDInJsonIdKeys

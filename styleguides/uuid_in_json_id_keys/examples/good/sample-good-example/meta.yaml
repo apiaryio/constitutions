@@ -1,0 +1,5 @@
+title: '`id` key is in UUID format'
+description: 'value `123e4567-e89b-12d3-a456-426655440000` of `id` key is not in UUID format'
+target:
+    - Request_Body
+    - Response_Body

@@ -76,5 +76,17 @@
     "ruleName": "json_camel_case_keys",
     "functionName": "validateJsonCamelCaseKeys",
     "target": "Response_Body"
+  },
+  {
+    "intent": "It validates that value under `id` key in body JSON object is in format of UUID [1].\n[1] http://en.wikipedia.org/wiki/Universally_unique_identifier",
+    "ruleName": "uuid_in_json_id_keys",
+    "functionName": "validateUUIDInJsonIdKeys",
+    "target": "Request_Body"
+  },
+  {
+    "intent": "It validates that value under `id` key in body JSON object is in format of UUID [1].\n[1] http://en.wikipedia.org/wiki/Universally_unique_identifier",
+    "ruleName": "uuid_in_json_id_keys",
+    "functionName": "validateUUIDInJsonIdKeys",
+    "target": "Response_Body"
   }
 ]
