@@ -10,6 +10,18 @@ function parseUriTemplate(data) {
 /* eslint-enable */
 
 
+function _isUtcIso8601DateTime(string, utc) {
+  const iso = /^(\d{4}-\d\d-\d\d([tT][\d:.]*)?)([zZ]|([+-])(\d\d):?(\d\d))?$/;
+  const match = string.match(iso);
+  if (match === null) { return false; }
+  // validate UTC timezone
+  if (utc) {
+    if ((match[3] === 'z') || (match[3] === 'Z')) { return true; }
+    return false;
+  }
+  return true;
+}
+
 function _hasCamelCase(string) {
   return !!string.match(/[A-Za-z0-9]([A-Z0-9]*[a-z][a-z0-9]*[A-Z]|[a-z0-9]*[A-Z][A-Z0-9]*[a-z])[A-Za-z0-9]*/);
 }
@@ -83,4 +95,5 @@ module.exports = {
   _hasCamelCase,
   parseUriTemplate,
   _isDowncasedDashSeparated,
+  _isUtcIso8601DateTime,
 };

@@ -1,0 +1,6 @@
+title: 'Date not in ISO 85601 format'
+description: 'Date field `createdAt` value `2012-01-01T12:00:00Z` is not in ISO 85601 format'
+error: 'Datetime key "createdAt" is not in format ISO8601 or in UTC.'
+target:
+    - Request_Body
+    - Response_Body

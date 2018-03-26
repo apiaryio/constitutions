@@ -1,0 +1,5 @@
+title: 'Date in ISO 85601 format'
+description: 'Date field `createdAt` value `2012-01-01T12:00:00Z` is in ISO 85601 format'
+target:
+    - Request_Body
+    - Response_Body

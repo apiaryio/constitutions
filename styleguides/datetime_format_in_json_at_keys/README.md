@@ -1,10 +1,3 @@
-# Tully's styleguides [![CircleCI](https://circleci.com/gh/apiaryio/constitutions.svg?style=svg&circle-token=32b6b19a59e02fdb795d2f47c80e37e2a2a9a033&ver=1)](https://circleci.com/gh/apiaryio/constitutions)
-
-description of this satyleguide
-
-
-## Rules
-
 ### Datetime fields are in `ISO 85601` format
 Applies to API Targets `Request_Body, Response_Body`
 
@@ -76,9 +69,6 @@ FORMAT: 1A
 ```
 
 > Error: Datetime key "createdAt" is not in format ISO8601 or in UTC.
-
-
-
 
 
 

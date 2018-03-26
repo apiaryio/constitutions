@@ -1,0 +1,20 @@
+FORMAT: 1A
+
+# test
+
+## test [/test]
+
+
+### test post [POST]
+
++ Request (application/json)
+
+        {
+            "createdAt": "2012-01-01T12:00:00Z"
+        }
+
++ Response 200 (application/json)
+
+        {
+            "createdAt": "2012-01-01T12:00:00Z"
+        }
