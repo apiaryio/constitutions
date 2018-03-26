@@ -1,0 +1,6 @@
+title: 'no `camelCase-d` JSON object keys'
+description: 'JSON object key `id-key` is not in cameCase format'
+error: 'Key "id-key" is not in camel case format.'
+target:
+    - Request_Body
+    - Response_Body

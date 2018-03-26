@@ -1,0 +1,5 @@
+title: '`camelCase-d` JSON object keys'
+description: 'JSON object key `idKey` is in cameCase format.'
+target:
+    - Request_Body
+    - Response_Body

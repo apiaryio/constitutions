@@ -64,5 +64,17 @@
     "ruleName": "dash_delimited_lowercased_uris",
     "functionName": "validateUriPartsDashSeparatedLowercase",
     "target": "Resource_URI_Template"
+  },
+  {
+    "intent": "Validates if JSON object keys are in camel-case format. It expects no dashes or underscores in field names.",
+    "ruleName": "json_camel_case_keys",
+    "functionName": "validateJsonCamelCaseKeys",
+    "target": "Request_Body"
+  },
+  {
+    "intent": "Validates if JSON object keys are in camel-case format. It expects no dashes or underscores in field names.",
+    "ruleName": "json_camel_case_keys",
+    "functionName": "validateJsonCamelCaseKeys",
+    "target": "Response_Body"
   }
 ]

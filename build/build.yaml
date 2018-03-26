@@ -8,3 +8,4 @@ rules:
   - proper_action_status_code
   - pluralised_resource_names_in_uri
   - dash_delimited_lowercased_uris
+  - json_camel_case_keys
