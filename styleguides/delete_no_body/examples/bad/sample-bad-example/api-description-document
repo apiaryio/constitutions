@@ -1,0 +1,15 @@
+FORMAT: 1A
+
+# API Projects
+
+## Singular [/projects/{projectId}]
+
+### Remove a Project [DELETE]
+
++ Request (application/json)
+
+        {
+            id: 1
+        }
+
++ Response 204

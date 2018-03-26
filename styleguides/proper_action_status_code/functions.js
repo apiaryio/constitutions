@@ -1,3 +1,5 @@
+/* global lodash */
+
 const { validStatusAndMethod } = require('./helpers');
 
 /*
@@ -13,7 +15,6 @@ const { validStatusAndMethod } = require('./helpers');
  */
 function validateProperActionStatusCode(action) {
   for (const transaction of action.transactions || []) {
-    // eslint-disable-next-line no-undef
     if (validStatusAndMethod(lodash.get(transaction, 'response.statusCode'), lodash.get(transaction, 'request.method'))) {
       return true;
     }

@@ -12,6 +12,6 @@ module.exports = {
     'max-len': ["error", { 'code': 130 }],
     'func-style': ['error', 'declaration', { "allowArrowFunctions": true }],
     'no-restricted-syntax': 0,
-    'spaced-comment': 0
+    'spaced-comment': 0,
   }
 };

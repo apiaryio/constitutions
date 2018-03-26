@@ -11,3 +11,4 @@ rules:
   - json_camel_case_keys
   - uuid_in_json_id_keys
   - datetime_format_in_json_at_keys
+  - delete_no_body

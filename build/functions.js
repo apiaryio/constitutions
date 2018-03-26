@@ -1,5 +1,110 @@
 
 /*
+Sample rule title
+Intent of the rule/description
+
+@targets: Resource_URI_Template, Response_Body
+@minim: true
+*/
+function someFunction(data) {
+  return functions.someFunction_webpack(data);
+}
+
+/*
+Only British spelling
+Validates if there is no american spelling in JSON object bodies
+
+@targets: Request_Body, Response_Body
+@minim: true
+*/
+function validateBodyBritishSpelling(data) {
+  return functions.validateBodyBritishSpelling_webpack(data);
+}
+
+/*
+Validates if JSON body string is a pretty printed JSON.
+JSON body string is a pretty printed JSON. It naively expects at least one line per key in parsed object.
+
+@targets: Request_Body, Response_Body
+@minim: true
+*/
+function validatePrettyPrintedJson(data) {
+  return functions.validatePrettyPrintedJson_webpack(data);
+}
+
+/*
+No all-caps ID's
+Validates if there is no property containing all-caps `ID` string in JSON object bodies.
+
+@targets: Request_Body, Response_Body
+@minim: true
+*/
+function preventAllCapsIdInJson(data) {
+  return functions.preventAllCapsIdInJson_webpack(data);
+}
+
+/*
+Validates proper combinations of request method and response status code.
+Possible combinations are:
+   - 200: GET, DELETE, PATCH
+   - 201: POST
+   - 202: POST, DELETE, PATCH
+   - 206: GET
+
+
+@targets: Action
+@minim: true
+*/
+function validateProperActionStatusCode(data) {
+  return functions.validateProperActionStatusCode_webpack(data);
+}
+
+/*
+Plural form URI template.
+Validates if last literal part of URI template is in plural form.
+
+@targets: Resource_URI_Template
+@minim: true
+*/
+function validatePluralisedResourceNamesInUri(data) {
+  return functions.validatePluralisedResourceNamesInUri_webpack(data);
+}
+
+/*
+URI templates are dash separated and lowercased
+Validates if literal parts of the URI templates are dash separated and lowercased. It expects no underscores and capital characters.
+
+@targets: Resource_URI_Template
+@minim: true
+*/
+function validateUriPartsDashSeparatedLowercase(data) {
+  return functions.validateUriPartsDashSeparatedLowercase_webpack(data);
+}
+
+/*
+camelCase JSON object keys
+Validates if JSON object keys are in camel-case format. It expects no dashes or underscores in field names.
+
+@targets: Request_Body, Response_Body
+@minim: true
+*/
+function validateJsonCamelCaseKeys(data) {
+  return functions.validateJsonCamelCaseKeys_webpack(data);
+}
+
+/*
+UUID `id` key
+It validates that value under `id` key in body JSON object is in format of UUID [1].
+[1] http://en.wikipedia.org/wiki/Universally_unique_identifier
+
+@targets: Request_Body, Response_Body
+@minim: true
+*/
+function validateUUIDInJsonIdKeys(data) {
+  return functions.validateUUIDInJsonIdKeys_webpack(data);
+}
+
+/*
 Datetime fields are in `ISO 85601` format
 Validates if body JSON object values under datetime fields identified by key with trailing `At` are in format of ISO 85601 [1] and in the UTC timezone.
 [1] https://www.iso.org/iso-8601-date-and-time-format.html
@@ -9,6 +114,17 @@ Validates if body JSON object values under datetime fields identified by key wit
 */
 function validateDatetimeFormatInJsonAtKeys(data) {
   return functions.validateDatetimeFormatInJsonAtKeys_webpack(data);
+}
+
+/*
+DELETE request must not have a body
+Checks if response to DELETE request contains body
+
+@targets: Action
+@minim: true
+*/
+function validateDeleteNoBody(data) {
+  return functions.validateDeleteNoBody_webpack(data);
 }
 
 
@@ -90,7 +206,7 @@ var functions =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 2);
+/******/ 	return __webpack_require__(__webpack_require__.s = 14);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -200,6 +316,33 @@ module.exports = {
 
 /***/ }),
 /* 1 */
+/***/ (function(module, exports) {
+
+/* global lodash */
+
+/*
+ Checks if response to DELETE request contains body
+
+ @targets: Action
+ @minim: true
+ */
+function validateDeleteNoBody(action) {
+  for (const transaction of action.transactions || []) {
+    if (lodash.get(transaction, 'request.method', '').toValue().toLocaleLowerCase() === 'delete' &&
+      lodash.get(transaction, 'request.messageBody')) {
+      return 'DELETE request must not have a body.';
+    }
+  }
+  return true;
+}
+
+module.exports = {
+  validateDeleteNoBody,
+};
+
+
+/***/ }),
+/* 2 */
 /***/ (function(module, exports, __webpack_require__) {
 
 const { _isUtcIso8601DateTime } = __webpack_require__(0);
@@ -258,14 +401,486 @@ module.exports = {
 
 
 /***/ }),
-/* 2 */
+/* 3 */
+/***/ (function(module, exports, __webpack_require__) {
+
+const { _isUUID } = __webpack_require__(0);
+/*
+ It validates that value under `id` key in body JSON object is in format of
+ UUID [1].
+
+ [1] http://en.wikipedia.org/wiki/Universally_unique_identifier
+
+ @targets: Request_Body, Response_Body
+ @minim: true
+ */
+function validateUUIDInJsonIdKeys(data) {
+  // eslint-disable-next-line no-param-reassign
+  data = data.toValue();
+
+  if ((data == null) || (data === '')) {
+    return true;
+  }
+
+  try {
+    // eslint-disable-next-line no-param-reassign
+    data = JSON.parse(data);
+  } catch (error) {
+    return true;
+  }
+
+  if (typeof (data) !== 'object') {
+    return true;
+  }
+
+  const findAndCheckIdField = (obj) => {
+    // eslint-disable-next-line guard-for-in
+    for (const key in obj) {
+      if (typeof (obj[key]) === 'object') {
+        findAndCheckIdField(obj[key]);
+      } else if (key === 'id') {
+        if (!_isUUID(String(obj[key]))) {
+          throw new Error(`Id key value \`${obj[key]}\`is not in UUID format.`);
+        }
+      }
+    }
+  };
+
+  try {
+    findAndCheckIdField(data);
+    return true;
+  } catch (e) {
+    return e.message;
+  }
+}
+module.exports = {
+  validateUUIDInJsonIdKeys,
+};
+
+
+/***/ }),
+/* 4 */
+/***/ (function(module, exports, __webpack_require__) {
+
+const { _isNormalCase, _isCamelCase } = __webpack_require__(0);
+
+/*
+ Validates if JSON object keys are in camel-case format. It expects no
+ dashes or underscores in field names.
+
+ @targets: Request_Body, Response_Body
+ @minim: true
+ */
+function validateJsonCamelCaseKeys(data) {
+  // eslint-disable-next-line no-param-reassign
+  data = data.toValue();
+
+  if ((data == null) || (data === '')) {
+    return true;
+  }
+
+  try {
+    // eslint-disable-next-line no-param-reassign
+    data = JSON.parse(data);
+  } catch (error) {
+    return true;
+  }
+
+  if (typeof (data) !== 'object') {
+    return true;
+  }
+
+  const checkFields = (obj) => {
+    // eslint-disable-next-line guard-for-in
+    for (const key in obj) {
+      if (typeof (obj[key]) === 'object') {
+        checkFields(obj[key]);
+      } else if (!_isCamelCase(key) && !_isNormalCase(key)) {
+        throw new Error(`Key "${key}" is not in camel case format.`);
+      }
+    }
+  };
+
+  try {
+    checkFields(data);
+    return true;
+  } catch (e) {
+    return e.message;
+  }
+}
+
+module.exports = {
+  validateJsonCamelCaseKeys,
+};
+
+
+/***/ }),
+/* 5 */
+/***/ (function(module, exports, __webpack_require__) {
+
+const { _isDowncasedDashSeparated, parseUriTemplate } = __webpack_require__(0);
+
+/*
+ Validates if literal parts of the URI templates are dash separated and lowercased.
+ It expects no underscores and capital characters.
+
+ @targets: Resource_URI_Template
+ @minim: true
+ */
+function validateUriPartsDashSeparatedLowercase(data) {
+  // eslint-disable-next-line no-param-reassign
+  data = data.toValue();
+
+  if (!data) {
+    return false;
+  }
+
+  const parsed = parseUriTemplate(data);
+  const literalParts = [];
+
+  if (!parsed.expressions) {
+    return false;
+  }
+
+  for (const expression of parsed.expressions) {
+    if (expression.literal) {
+      literalParts.push(expression.literal);
+    }
+  }
+  for (const part of literalParts) {
+    if (!_isDowncasedDashSeparated(part)) {
+      return `Uri part "${part}" is not lowercased or dash separated.`;
+    }
+  }
+  return true;
+}
+
+module.exports = {
+  validateUriPartsDashSeparatedLowercase,
+};
+
+
+/***/ }),
+/* 6 */
+/***/ (function(module, exports, __webpack_require__) {
+
+const { _isPlural, parseUriTemplate } = __webpack_require__(0);
+
+/*
+ Validates if last literal part of URI template is in plural form.
+
+ @targets: Resource_URI_Template
+ @minim: true
+ */
+function validatePluralisedResourceNamesInUri(data) {
+  // eslint-disable-next-line no-param-reassign
+  data = data.toValue();
+
+  if (!data) {
+    return false;
+  }
+
+  if (data === '/') {
+    return true;
+  }
+
+  const parsed = parseUriTemplate(data);
+  const literalParts = [];
+
+  if (!parsed.expressions) {
+    return false;
+  }
+
+  for (const expression of parsed.expressions) {
+    if (expression.literal) {
+      literalParts.push(expression.literal);
+    }
+  }
+
+  let part = literalParts[literalParts.length - 1];
+  part = part.replace(/\//g, '');
+
+  if (!_isPlural(part)) {
+    return `Last resource URI part "${part}" is not in plural form.`;
+  }
+  return true;
+}
+module.exports = {
+  validatePluralisedResourceNamesInUri,
+};
+
+
+/***/ }),
+/* 7 */
+/***/ (function(module, exports) {
+
+function validStatusAndMethod(status, method) {
+  const statusCodeMap = {
+    200: ['GET', 'DELETE', 'PATCH'],
+    201: ['POST'],
+    202: ['POST', 'DELETE', 'PATCH'],
+    206: ['GET'],
+  };
+
+  if (status && status.toValue) {
+    // eslint-disable-next-line no-param-reassign
+    status = status.toValue();
+  }
+
+  if (method && method.toValue) {
+    // eslint-disable-next-line no-param-reassign
+    method = method.toValue();
+  }
+
+  if (statusCodeMap[status] === undefined) { return false; }
+  if (statusCodeMap[status].includes(method)) { return true; }
+  return false;
+}
+
+module.exports = {
+  validStatusAndMethod,
+};
+
+
+/***/ }),
+/* 8 */
+/***/ (function(module, exports, __webpack_require__) {
+
+/* global lodash */
+
+const { validStatusAndMethod } = __webpack_require__(7);
+
+/*
+ Validates proper combinations of request method and response status code.
+ Possible combinations are:
+ - 200: GET, DELETE, PATCH
+ - 201: POST
+ - 202: POST, DELETE, PATCH
+ - 206: GET
+
+ @targets: Action
+ @minim: true
+ */
+function validateProperActionStatusCode(action) {
+  for (const transaction of action.transactions || []) {
+    if (validStatusAndMethod(lodash.get(transaction, 'response.statusCode'), lodash.get(transaction, 'request.method'))) {
+      return true;
+    }
+  }
+  // eslint-disable-next-line no-multi-str
+  return `No valid combination of status code and method. Valid combinations are:
+  - 200: GET, DELETE, PATCH
+  - 201: POST
+  - 202: POST, DELETE, PATCH
+  - 206: GET`;
+}
+
+module.exports = {
+  validateProperActionStatusCode,
+};
+
+
+/***/ }),
+/* 9 */
+/***/ (function(module, exports) {
+
+/*
+ Validates if there is no property containing all-caps `ID` string in JSON object bodies.
+
+ @targets: Request_Body, Response_Body
+ @minim: true
+ */
+function preventAllCapsIdInJson(data) {
+  // eslint-disable-next-line no-param-reassign
+  data = data.toValue();
+
+  if ((data == null) || (data === '')) {
+    return true;
+  }
+
+  try {
+    // eslint-disable-next-line no-param-reassign
+    data = JSON.parse(data);
+  } catch (error) {
+    return true;
+  }
+
+  if (typeof (data) !== 'object') {
+    return true;
+  }
+
+  function checkKeysForId(obj) {
+    // eslint-disable-next-line guard-for-in
+    for (const key in obj) {
+      if (typeof (obj[key]) === 'object') {
+        checkKeysForId(obj[key]);
+      } else if (key.match(/ID$/g) !== null) {
+        throw new Error(`Key "${key}" contains all caps "ID".`);
+      }
+    }
+  }
+
+  try {
+    checkKeysForId(data);
+    return true;
+  } catch (e) {
+    return e.message;
+  }
+}
+
+module.exports = {
+  preventAllCapsIdInJson,
+};
+
+
+/***/ }),
+/* 10 */
+/***/ (function(module, exports) {
+
+function countKeys(o) {
+  let keyCount = 0;
+  // eslint-disable-next-line guard-for-in, no-restricted-syntax
+  for (const key in o) {
+    if (typeof (o[key]) === 'object') {
+      keyCount += 1;
+      countKeys(o[key]);
+    } else {
+      keyCount += 1;
+    }
+  }
+
+  return keyCount;
+}
+
+module.exports = {
+  countKeys,
+};
+
+
+/***/ }),
+/* 11 */
+/***/ (function(module, exports, __webpack_require__) {
+
+const helpers = __webpack_require__(10);
+
+/*
+ Validates if JSON body string is a pretty printed JSON. It naively expects
+ at least one line per key in parsed object.
+
+ @targets: Request_Body, Response_Body
+ @minim: true
+ */
+function validatePrettyPrintedJson(json) {
+  let data;
+
+  // eslint-disable-next-line no-param-reassign
+  json = json.toValue();
+
+  if ((json == null) || (json === '')) {
+    return true;
+  }
+
+  try {
+    data = JSON.parse(json);
+  } catch (e) {
+    return true;
+  }
+
+  if (typeof (data) !== 'object') {
+    return true;
+  }
+
+  const linesCount = json.split('\n').length - 1;
+
+  if (linesCount >= helpers.countKeys(data)) {
+    return true;
+  }
+  return 'JSON is not pretty-printed, expecting one key per line.';
+}
+
+
+module.exports = {
+  validatePrettyPrintedJson,
+};
+
+
+/***/ }),
+/* 12 */
+/***/ (function(module, exports, __webpack_require__) {
+
+const { _searchAmericanWord } = __webpack_require__(0);
+
+function validateBodyBritishSpelling(data) {
+  // eslint-disable-next-line no-param-reassign
+  data = data.toValue();
+
+  const result = _searchAmericanWord(JSON.stringify(data));
+  if (result) {
+    return `Contains american spelling of word: ${result}`;
+  }
+  return true;
+}
+
+module.exports = {
+  validateBodyBritishSpelling,
+};
+
+
+/***/ }),
+/* 13 */
+/***/ (function(module, exports) {
+
+function someFunction(data) {
+  if (data.toValue() !== '/hello_world') {
+    return 'ooooo nooooooo error!';
+  }
+  return true;
+}
+
+module.exports = {
+  someFunction,
+};
+
+
+/***/ }),
+/* 14 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // eslint-disable-next-line max-len, camelcase
-const validateDatetimeFormatInJsonAtKeys_webpack = __webpack_require__(1).validateDatetimeFormatInJsonAtKeys;
+const someFunction_webpack = __webpack_require__(13).someFunction;
+// eslint-disable-next-line max-len, camelcase
+const validateBodyBritishSpelling_webpack = __webpack_require__(12).validateBodyBritishSpelling;
+// eslint-disable-next-line max-len, camelcase
+const validatePrettyPrintedJson_webpack = __webpack_require__(11).validatePrettyPrintedJson;
+// eslint-disable-next-line max-len, camelcase
+const preventAllCapsIdInJson_webpack = __webpack_require__(9).preventAllCapsIdInJson;
+// eslint-disable-next-line max-len, camelcase
+const validateProperActionStatusCode_webpack = __webpack_require__(8).validateProperActionStatusCode;
+// eslint-disable-next-line max-len, camelcase
+const validatePluralisedResourceNamesInUri_webpack = __webpack_require__(6).validatePluralisedResourceNamesInUri;
+// eslint-disable-next-line max-len, camelcase
+const validateUriPartsDashSeparatedLowercase_webpack = __webpack_require__(5).validateUriPartsDashSeparatedLowercase;
+// eslint-disable-next-line max-len, camelcase
+const validateJsonCamelCaseKeys_webpack = __webpack_require__(4).validateJsonCamelCaseKeys;
+// eslint-disable-next-line max-len, camelcase
+const validateUUIDInJsonIdKeys_webpack = __webpack_require__(3).validateUUIDInJsonIdKeys;
+// eslint-disable-next-line max-len, camelcase
+const validateDatetimeFormatInJsonAtKeys_webpack = __webpack_require__(2).validateDatetimeFormatInJsonAtKeys;
+// eslint-disable-next-line max-len, camelcase
+const validateDeleteNoBody_webpack = __webpack_require__(1).validateDeleteNoBody;
 
 module.exports = {
+  someFunction_webpack,
+  validateBodyBritishSpelling_webpack,
+  validatePrettyPrintedJson_webpack,
+  preventAllCapsIdInJson_webpack,
+  validateProperActionStatusCode_webpack,
+  validatePluralisedResourceNamesInUri_webpack,
+  validateUriPartsDashSeparatedLowercase_webpack,
+  validateJsonCamelCaseKeys_webpack,
+  validateUUIDInJsonIdKeys_webpack,
   validateDatetimeFormatInJsonAtKeys_webpack,
+  validateDeleteNoBody_webpack,
 };
 
 

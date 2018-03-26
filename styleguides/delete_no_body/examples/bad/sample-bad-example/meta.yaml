@@ -1,0 +1,4 @@
+title: Body pasyload in response
+description: The response to DELETE request does contain body.
+error: DELETE request must not have a body.
+target: Action
