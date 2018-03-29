@@ -2,89 +2,169 @@
 
 > **Let's define API Style Guides collaboratvelly on examples.** 
 
-This repository containts executable examples of API Design Style Guide Rules (API Blueprint, OpeAPI/Swagger, ... code snippets) for test-driven development of API Description Language linters (style guide engines) to enable vendor indepndence, all the time up-to-date documentation tested in CI and preventing regressions caused by unwanted changes in behavior of underying Style Guide engines and linters implementation.
+This repository contains executable examples of API Design Style Guide Rules (API Blueprint, OpeAPI/Swagger, ... code snippets) to enable vendor independence, all the time up-to-date documentation tested in CI and preventing regressions caused by unwanted changes in behavior of underlying Style Guide engine.
 
 ## How to write an API Design Style Guide
 
 ### 1. Prepare the Style Guide concepually
 - Catch the idea
 - Create a written free-form verbal documentaion, formal specification, white paper etc..
-- Collect all the PDFs, Google Docs, Markdowns, READMEs, rtfs and and docxs you already have in your drawers
+- Collect all the PDFs, Google Docs, Markdowns, READMEs, rtfs and and docs you already have in your drawers
 
 ### 2. Breakdown the specification into single rules
-- Identify and isolate singel rules in the in the textual styleguide you created in the step 1
+- Identify and isolate single rules in the in the textual styleguide you created in the step 1
 - Add good and bad examples for every single new rule using API Description language (OAS/Swagger, API Blueprint, ...)
 
-### 3. TDD of the rules, add your Style Guide to CI
-- Hook-up an API Description language Style Guide engine in and execute examples against Rules assertion code as fixtures in your tests (see: `/styleguide/sample-styleguide/linter/linter`
+### 3. Development of the rules
 
-- Make the linter **pass** on all **good examples**
-- Make the linter **fail** on all **bad examples**
+#### 3.2 Create new styleguide rule directory structure and files
 
-```
-$ ./scripts/test
-Testing styleguide 'sample-styleguide'
-  Testing rule 'sample-rule'
-    Expecting good example 'sample-good-example' to pass
-      PASS
-    Expecting bad example 'sample-bad-example' to fail
-      PASS
-```
+Fork this [repo](https://github.com/apiaryio/constitutions)
 
-### 4. Generate the documentation
-
-- Compile the Style Guide Documentation to a Markdown document
+Run:
 
 ```
-$ ./scripts/compile
-```
-
-- [Sample Style Guide Readme](./styleguides/sample-styleguide/README.md)
-- [Sample Rule Readme](./rules/sample-rule/README.md)
-- [Sample Good Example Readme](./rules/sample-rule/good-examples/sample-good-example/README.md)
-- [Sample Bad Example Readme](./rules/sample-rule/bad-examples/sample-bad-example/README.md)
-
-
-
-### 5. Collaborate, re-use, share, iterate
-
-- Generate the documentation
-- Not all rules can be expressed in current API Description languages, contrinute to their design
-- Fork this repo, add your Rules, Good and Bad Eaxmples, and Styleguides
-
-## How it works
-
-It's just all files and a convention for a directory structure
+$ ./scripts/init name-of-your-new-rule-directory
 
 ```
-├ rules                                   - Rule directory, put all the rules in this dir
-│   └ sample-rule                         - Sample rule dir, clone to create a new one
-│     ├ README.md                         - Generated Rule Readme, DO NOT EDIT
-│     ├ api-element                       - The API Element target the rule applies to
-│     ├ description                       - Rule verbal description
-│     ├ function-name                     - Binding function name to the style guide validation
-│     ├ title                             - Rule title
-│     ├ bad-examples                      - Bad examples directory for the rule
-│     │   └ sample-bad-example            - Sample bad example dir, clone to create a new ones
-│     │     ├ README.md                   - Generated Bad Example Readme, DO NOT EDIT
-│     │     ├ api-description-document    - Example document - OAS 2.0 (Swagger) or API Blueprint
-│     │     ├ description                 - Bad example verbal description
-│     │     ├ error                       - Expected error message for the rule violation
-│     │     └ title                       - Bad Example human undesrdable title
-│     └ good-examples                     - Good examples directory for the rule
-│         └ sample-good-example           - Sample good example directory, clone to create a new one
-│           ├ README.md                   - Genesrated Good Example Readme, DO NOT EDIT
-│           ├ api-description-document    - Example document - OAS 2.0 (Swagger) or API Blueprint
-│           ├ description                 - Good Example verbal desription
-│           └ title                       - Good Example human understandable title
-└ styleguides
-  └ sample-styleguide                     - Sample Style Guide dir, clone to create a new one
-    ├ README.md                           - Generated Styleguide Readme inculding the enabled rules
-    ├ description                         - Human understandable styleguide description and introduction
-    ├ enabled_rules                       - Rule directory names to be included in the styleguide
-    ├ title                               - Style Guide human understandable title
-    └ linter                              - Directory where the linter livers
-      └ linters                           - API Description Linter executable command wrapper
+
+The following structure should be created in `/styleguides` directory
+
+```
+├ main-rule-dir
+│  └examples                                - examples directory
+│     ├ bad                                 - bad examples directory
+│     │  ├ bad-example1
+│     │  │  ├ api-description-document      - API description document that should fail
+│     │  │  └ meta.yaml                     - configuration and metadata for the example
+│     │  └ bad-example2
+│     │     ├ api-description-document
+│     │     └ meta.yaml
+│     └ good
+│        └ good-example1                    - good examples directory
+│           ├ api-description-document      - API description document that should pass
+│           └ meta.yaml                     - configuration and metadata for the example
+├ functions.js                              - validation function definition
+├ rule.yaml                                 - rule configuration and metadata
+└ README.md                                 - generated readme file (do not edit)
 ```
 
+#### 3.3 Write the examples
+
+Write at least one good and bad API description document.
+
+#### 3.4 Write the validation function
+
+Write the validation function to `functions.js`
+
+Function must be defined by [declaration](https://www.w3schools.com/js/js_function_definition.asp). 
+Function must be exported by 
+    
+```javascript
+module.exports = {
+  myFunction,
+};  
+```
+
+Each function has one input parameter - [minim element](https://github.com/refractproject/minim-api-description) 
+if `minim` is set to `true` in [rule configuration](#write-the-rule-configuration) or (deprecated) JSON object found on desired 
+[path](#supported-targets) in 
+[refract tree](https://github.com/refractproject/refract-spec/blob/master/namespaces/api-description-namespace.md). 
+Function is not executed if no object is found.
+The function must return true if validation passes or a string which describes reason of failure if validation fails.
+You can `require` npm packages (after installing them to `node_modules`) or libraries.
+[lodash](https://lodash.com/) package is available out of the box.
+Any I/O are disallowed for security reasons.
+
+#### 3.5 Write the rule configuration
+
+Write the rule configuration to `rule.yaml`
+
+```md
+title: title of this rule
+intent: intent/description of this rule
+allowedTargets: list of allowed targets
+minim: true
+functionName: name of the function defined in functions.js file
+```
+
+`allowedTargets` is list of targets rule can be applied to.  
+
+##### Supported targets
+
+```md
+api
+
+meta
+title
+copy
+
+resourceGroup
+resourceGroup.title
+resourceGroup.copy
+
+resource
+resource.title
+resource.copy
+resource.href
+resource.hrefVariables
+
+transition
+transition.title
+transition.method
+transition.copy
+transition.hrefVariables
+transition.requestAndResponse
+
+request
+request.copy
+request.messageBody
+request.messageBodySchema
+request.headers
+request.header
+
+response
+response.statusCode
+response.copy
+response.messageBody
+response.messageBodySchema
+response.headers
+response.header
+
+header
+```
+
+#### 3.5 Write the build configuration
+
+Write the build configuration to `./build/build.yaml`
+
+```md
+title: styleguides title
+description: description of this satyleguide
+rules:
+  - name-of-your-new-rule-directory
+```
+
+#### 3.6 Build and Test
+
+by running
+
+```bash
+npm run test
+
+```
+
+- every rule defined in `./build/build.yaml` is tested against its good and bad example
+- README.md file is generated for each rule defined in `./build/build.yaml` in its directory
+- compound README.md file is generated to `./build/README.md`
+- bundle with all functions and its dependencies defined in `./build/build.yaml` is generated to `./build/functions.js`
+- `./build/rules.json` is generated
+
+`rules.json` and `functions.js` bundle can be used for [Apiary Styleguides](https://help.apiary.io/tools/style-guide/) or 
+[Apiary CLI](https://help.apiary.io/tools/apiary-cli/#using-apiary-style-guide)
+
+
+### 4. Collaborate, re-use, share, iterate
+
+If you feel that your rule(s) could beneficial for others, feel free to submit PR.
 

@@ -15,7 +15,7 @@ FORMAT: 1A
 
 # API Projects
 
-## Singular [/projects/{projectId}]
+## Projects [/projects/{projectId}]
 
 ### Remove a Project [DELETE]
 
@@ -37,7 +37,7 @@ FORMAT: 1A
 
 # API Projects
 
-## Singular [/projects/{projectId}]
+## Projects [/projects/{projectId}]
 
 ### Remove a Project [DELETE]
 
