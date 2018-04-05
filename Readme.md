@@ -1,6 +1,6 @@
 # API Design Style Guide Contracts [![CircleCI](https://circleci.com/gh/apiaryio/constitutions.svg?style=shield&circle-token=32b6b19a59e02fdb795d2f47c80e37e2a2a9a033&ver=1)](https://circleci.com/gh/apiaryio/constitutions)
 
-> **Let's define API Style Guides collaboratvelly on examples.** 
+> **Let's define API Style Guides collaboratively on examples.** 
 
 This repository contains executable examples of API Design Style Guide Rules (API Blueprint, OpeAPI/Swagger, ... code snippets) to enable vendor independence, all the time up-to-date documentation tested in CI and preventing regressions caused by unwanted changes in behavior of underlying Style Guide engine.
 
@@ -17,6 +17,15 @@ This repository contains executable examples of API Design Style Guide Rules (AP
 
 ### 3. Development of the rules
 
+#### 3.1 Install prerequisites
+
+- install [`node.js` v6+](https://nodejs.org/en/download/)
+- install dependencies
+
+```bash
+$ npm install
+```
+
 #### 3.2 Create new styleguide rule directory structure and files
 
 Fork this [repo](https://github.com/apiaryio/constitutions)
@@ -25,7 +34,6 @@ Run:
 
 ```
 $ ./scripts/init name-of-your-new-rule-directory
-
 ```
 
 The following structure should be created in `/styleguides` directory
@@ -57,7 +65,7 @@ Write at least one good and bad API description document.
 
 Write the validation function to `functions.js`
 
-Function must be defined by [declaration](https://www.w3schools.com/js/js_function_definition.asp). 
+Function must be defined by [declaration](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function). 
 Function must be exported by 
     
 ```javascript
@@ -139,8 +147,8 @@ header
 Write the build configuration to `./build/build.yaml`
 
 ```md
-title: styleguides title
-description: description of this satyleguide
+title: styleguide title
+description: description of this styleguide
 rules:
   - name-of-your-new-rule-directory
 ```

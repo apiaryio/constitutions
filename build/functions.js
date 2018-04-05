@@ -832,7 +832,7 @@ module.exports = {
 
 function someFunction(data) {
   if (data.toValue() !== '/hello_world') {
-    return 'ooooo nooooooo error!';
+    return 'ooooo nooooooo errsssor!';
   }
   return true;
 }
