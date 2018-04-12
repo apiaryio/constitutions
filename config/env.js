@@ -13,9 +13,7 @@ nconf
       VERSION: packagejson.version || '0.0.0',
     },
     TOKEN_URL: 'https://api.apiary.io/styleguide-cli/get-token',
-    //TOKEN_URL: 'https://api.apiary.test:9000/styleguide-cli/get-token',
     VALIDATE_URL: 'https://voight-kampff-aws.apiary-services.com/production/validate',
-    //VALIDATE_URL: 'http://0.0.0.0:8090/validate',
     STYLEGUIDES_DIR: 'styleguides',
     APIARY_API_KEY: undefined,
   });

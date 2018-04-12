@@ -1,17 +1,5 @@
 [
   {
-    "intent": "Intent of the rule/description",
-    "ruleName": "sample_rule",
-    "functionName": "someFunction",
-    "target": "Resource_URI_Template"
-  },
-  {
-    "intent": "Intent of the rule/description",
-    "ruleName": "sample_rule",
-    "functionName": "someFunction",
-    "target": "Response_Body"
-  },
-  {
     "intent": "Validates if there is no american spelling in JSON object bodies",
     "ruleName": "body_british_spelling",
     "functionName": "validateBodyBritishSpelling",

@@ -1,16 +1,5 @@
 
 /*
-Sample rule title
-Intent of the rule/description
-
-@targets: Resource_URI_Template, Response_Body
-@minim: true
-*/
-function someFunction(data) {
-  return functions.someFunction_webpack(data);
-}
-
-/*
 Only British spelling
 Validates if there is no american spelling in JSON object bodies
 
@@ -206,7 +195,7 @@ var functions =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 14);
+/******/ 	return __webpack_require__(__webpack_require__.s = 13);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -828,26 +817,8 @@ module.exports = {
 
 /***/ }),
 /* 13 */
-/***/ (function(module, exports) {
-
-function someFunction(data) {
-  if (data.toValue() !== '/hello_world') {
-    return 'ooooo nooooooo errsssor!';
-  }
-  return true;
-}
-
-module.exports = {
-  someFunction,
-};
-
-
-/***/ }),
-/* 14 */
 /***/ (function(module, exports, __webpack_require__) {
 
-// eslint-disable-next-line max-len, camelcase
-const someFunction_webpack = __webpack_require__(13).someFunction;
 // eslint-disable-next-line max-len, camelcase
 const validateBodyBritishSpelling_webpack = __webpack_require__(12).validateBodyBritishSpelling;
 // eslint-disable-next-line max-len, camelcase
@@ -870,7 +841,6 @@ const validateDatetimeFormatInJsonAtKeys_webpack = __webpack_require__(2).valida
 const validateDeleteNoBody_webpack = __webpack_require__(1).validateDeleteNoBody;
 
 module.exports = {
-  someFunction_webpack,
   validateBodyBritishSpelling_webpack,
   validatePrettyPrintedJson_webpack,
   preventAllCapsIdInJson_webpack,
