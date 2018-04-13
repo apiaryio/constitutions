@@ -1,0 +1,9 @@
+title: Bad combination of request method and response status code
+description: 200 response status code is not allowed for POST request
+error: >
+  No valid combination of status code and method. Valid combinations are:
+    - 200: GET, DELETE, PATCH
+    - 201: POST
+    - 202: POST, DELETE, PATCH
+    - 206: GET
+target: Action

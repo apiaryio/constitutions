@@ -1,0 +1,5 @@
+title: US spelling not used
+description: word `scandalising` is spelled correctly
+target:
+    - Request_Body
+    - Response_Body

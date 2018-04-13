@@ -1,0 +1,7 @@
+title: Validates if JSON body string is a pretty printed JSON.
+intent: JSON body string is a pretty printed JSON. It naively expects at least one line per key in parsed object.
+allowedTargets:
+  - Request_Body
+  - Response_Body
+minim: true
+functionName: validatePrettyPrintedJson

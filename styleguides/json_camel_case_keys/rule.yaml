@@ -1,0 +1,8 @@
+title: camelCase JSON object keys
+intent: Validates if JSON object keys are in camel-case format.
+        It expects no dashes or underscores in field names.
+allowedTargets:
+    - Request_Body
+    - Response_Body
+minim: true
+functionName: validateJsonCamelCaseKeys

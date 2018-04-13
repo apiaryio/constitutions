@@ -1,0 +1,13 @@
+title: Sample styleguides
+description: description of this satyleguide
+rules:
+  - body_british_spelling
+  - pretty_printed_json
+  - prevent_all_caps_id_in_json
+  - proper_action_status_code
+  - pluralised_resource_names_in_uri
+  - dash_delimited_lowercased_uris
+  - json_camel_case_keys
+  - uuid_in_json_id_keys
+  - datetime_format_in_json_at_keys
+  - delete_no_body

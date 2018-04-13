@@ -1,0 +1,10 @@
+FORMAT: 1A
+
+# test
+
+## test [/test/{id}/dogs]
+
+
+### test post [GET]
+
++ Request (application/json)

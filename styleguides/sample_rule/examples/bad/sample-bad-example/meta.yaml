@@ -1,0 +1,6 @@
+title: title for 'should fail' example
+description: some description for 'should fail' example
+error: ooooo nooooooo error!
+target:
+ - Resource_URI_Template
+ - Response_Body

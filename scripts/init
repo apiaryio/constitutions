@@ -1,0 +1,6 @@
+#!/bin/bash
+echo 'Creating rule structure...'
+
+node ./lib/init.js $1
+
+echo 'Done'

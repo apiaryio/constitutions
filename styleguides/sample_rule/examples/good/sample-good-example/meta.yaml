@@ -1,0 +1,4 @@
+title: title for 'should pass' example
+description: some description for 'should pass' example
+target:
+  - Resource_URI_Template

@@ -1,0 +1,6 @@
+title: DELETE request must not have a body
+intent: Checks if response to DELETE request contains body
+allowedTargets:
+  - Action
+minim: true
+functionName: validateDeleteNoBody

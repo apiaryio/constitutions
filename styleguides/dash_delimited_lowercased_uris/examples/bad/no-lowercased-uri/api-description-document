@@ -1,0 +1,10 @@
+FORMAT: 1A
+
+# test
+
+## test [/test-Not-LoweRcased/{id}]
+
+
+### test post [GET]
+
++ Request (application/json)

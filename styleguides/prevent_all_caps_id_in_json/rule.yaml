@@ -1,0 +1,7 @@
+title: "No all-caps ID's"
+intent: 'Validates if there is no property containing all-caps `ID` string in JSON object bodies.'
+allowedTargets:
+  - Request_Body
+  - Response_Body
+minim: true
+functionName: preventAllCapsIdInJson

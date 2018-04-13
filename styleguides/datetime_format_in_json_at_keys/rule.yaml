@@ -1,0 +1,11 @@
+title: 'Datetime fields are in `ISO 85601` format'
+intent: 'Validates if body JSON object values under datetime fields
+        identified by key with trailing `At` are in format
+        of ISO 85601 [1] and in the UTC timezone.
+
+        [1] https://www.iso.org/iso-8601-date-and-time-format.html'
+allowedTargets:
+    - Request_Body
+    - Response_Body
+minim: true
+functionName: validateDatetimeFormatInJsonAtKeys
