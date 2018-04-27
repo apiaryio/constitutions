@@ -739,7 +739,7 @@ Applies to API Targets `Action`
 Checks if response to DELETE request contains body
 
 #### Good Examples
-##### No body pasyload in response
+##### No body payload in response
 
 The response to DELETE request does not contain body.
 
@@ -761,7 +761,7 @@ FORMAT: 1A
 
 
 #### Bad Examples
-##### Body pasyload in response
+##### Body payload in response
 
 The response to DELETE request does contain body.
 
