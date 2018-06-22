@@ -6,14 +6,14 @@ This repository contains executable examples of API Design Style Guide Rules (AP
 
 ## How to write an API Design Style Guide
 
-### 1. Prepare the Style Guide concepually
+### 1. Prepare the Style Guide conceptually
 - Catch the idea
-- Create a written free-form verbal documentaion, formal specification, white paper etc..
-- Collect all the PDFs, Google Docs, Markdowns, READMEs, rtfs and and docs you already have in your drawers
+- Create a written free-form verbal documentation, formal specification, white paper etc..
+- Collect all the PDFs, Google Docs, Markdowns, READMEs, rtfs and docs you already have in your drawers
 
 ### 2. Breakdown the specification into single rules
-- Identify and isolate single rules in the in the textual styleguide you created in the step 1
-- Add good and bad examples for every single new rule using API Description language (OAS/Swagger, API Blueprint, ...)
+- Identify and isolate single rules in the textual styleguide you created on step 1
+- Add good and bad examples for every single new rule using API Description Language (OAS/Swagger, API Blueprint, ...)
 
 ### 3. Development of the rules
 
@@ -28,7 +28,7 @@ $ npm install
 
 #### 3.2 Create new styleguide rule directory structure and files
 
-Fork this [repo](https://github.com/apiaryio/constitutions)
+Fork this [repo](https://github.com/apiaryio/constitutions).
 
 Run:
 
@@ -59,7 +59,7 @@ The following structure should be created in `/styleguides` directory
 
 #### 3.3 Write the examples
 
-Write at least one good and bad API description document.
+Write at least one good and one bad API description document.
 
 #### 3.4 Write the validation function
 
@@ -96,7 +96,7 @@ minim: true
 functionName: name of the function defined in functions.js file
 ```
 
-`allowedTargets` is list of targets rule can be applied to.  
+`allowedTargets` is the list of targets this rule can be applied to.  
 
 ##### Supported targets
 
@@ -159,7 +159,6 @@ by running
 
 ```bash
 npm run test
-
 ```
 
 - every rule defined in `./build/build.yaml` is tested against its good and bad example
