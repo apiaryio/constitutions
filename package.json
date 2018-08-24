@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "scripts": {
     "build": "./scripts/build",
-    "pretest": "eslint --ignore-path .eslintignore .",
+    "pretest": "eslint .",
     "test": "./scripts/test"
   },
   "engines": {

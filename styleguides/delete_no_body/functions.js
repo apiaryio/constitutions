@@ -8,8 +8,8 @@
  */
 function validateDeleteNoBody(action) {
   for (const transaction of action.transactions || []) {
-    if (lodash.get(transaction, 'request.method', '').toValue().toLocaleLowerCase() === 'delete' &&
-      lodash.get(transaction, 'request.messageBody')) {
+    if (lodash.get(transaction, 'request.method', '').toValue().toLocaleLowerCase() === 'delete'
+      && lodash.get(transaction, 'request.messageBody')) {
       return 'DELETE request must not have a body.';
     }
   }
