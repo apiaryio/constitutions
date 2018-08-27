@@ -68,7 +68,7 @@ function _searchAmericanWord(string) {
   for (const word of words) {
     if (testWords.includes(word.toLowerCase())) {
       return word;
-    } else if (_isCamelCase(word) || _isSnakeCase(word)) {
+    } if (_isCamelCase(word) || _isSnakeCase(word)) {
       for (const testWord of testWords) {
         if (word.toLowerCase().indexOf(testWord) > -1) {
           return word;
