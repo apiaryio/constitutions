@@ -6,7 +6,7 @@ function validateBodyBritishSpelling(data) {
 
   const result = _searchAmericanWord(JSON.stringify(data));
   if (result) {
-    return `Contains american spelling of word: ${result}`;
+    return `Contains US spelling of word: ${result}`;
   }
   return true;
 }
