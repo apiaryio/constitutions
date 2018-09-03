@@ -8,7 +8,7 @@ description of this satyleguide
 ### Only British spelling
 Applies to API Targets `Request_Body, Response_Body`
 
-Validates if there is no american spelling in JSON object bodies
+Validates if there is no US spelling in JSON object bodies
 
 #### Good Examples
 ##### US spelling not used
@@ -74,7 +74,7 @@ FORMAT: 1A
 
 ```
 
-> Error: Contains american spelling of word: scandalizing
+> Error: Contains US spelling of word: scandalizing
 
 
 

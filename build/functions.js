@@ -5,7 +5,7 @@
 
 /*
 Only British spelling
-Validates if there is no american spelling in JSON object bodies
+Validates if there is no US spelling in JSON object bodies
 
 @targets: Request_Body, Response_Body
 @minim: true
@@ -276,7 +276,7 @@ function _searchAmericanWord(string) {
   for (const word of words) {
     if (testWords.includes(word.toLowerCase())) {
       return word;
-    } else if (_isCamelCase(word) || _isSnakeCase(word)) {
+    } if (_isCamelCase(word) || _isSnakeCase(word)) {
       for (const testWord of testWords) {
         if (word.toLowerCase().indexOf(testWord) > -1) {
           return word;
@@ -321,8 +321,8 @@ module.exports = {
  */
 function validateDeleteNoBody(action) {
   for (const transaction of action.transactions || []) {
-    if (lodash.get(transaction, 'request.method', '').toValue().toLocaleLowerCase() === 'delete' &&
-      lodash.get(transaction, 'request.messageBody')) {
+    if (lodash.get(transaction, 'request.method', '').toValue().toLocaleLowerCase() === 'delete'
+      && lodash.get(transaction, 'request.messageBody')) {
       return 'DELETE request must not have a body.';
     }
   }
@@ -809,7 +809,7 @@ function validateBodyBritishSpelling(data) {
 
   const result = _searchAmericanWord(JSON.stringify(data));
   if (result) {
-    return `Contains american spelling of word: ${result}`;
+    return `Contains US spelling of word: ${result}`;
   }
   return true;
 }
